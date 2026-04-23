@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- TÍTULO E META: personalize para a Bomilak -->
+  <title>Bomilak — Picolés e Sorvetes Artesanais</title>
+  <meta name="description" content="Bomilak: picolés e sorvetes artesanais com sabor de verdade." />
+
+  <!-- FAVICON: substitua pelo ícone da marca -->
+  <!-- <link rel="icon" type="image/png" href="assets/images/favicon.png" /> -->
+
+  <!-- Fontes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Poppins:wght@500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ========== 1. NAVBAR ========== -->
+  <header class="navbar" id="navbar">
+    <div class="container navbar__inner">
+      <!-- LOGO: troque pela imagem real da Bomilak -->
+      <a href="#inicio" class="navbar__logo" aria-label="Bomilak">
+        <!-- <img src="assets/images/logo-bomilak.svg" alt="Bomilak" width="150" height="44" /> -->
+        <span class="logo-text">Bomilak</span>
+      </a>
+
+      <!-- MENU principal -->
+      <nav class="navbar__menu" id="navMenu" aria-label="Navegação">
+        <ul>
+          <li><a href="#produtos">Produtos</a></li>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#onde-encontrar">Onde Encontrar</a></li>
+          <li><a href="#blog">Blog</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </nav>
+
+      <div class="navbar__ctas">
+        <a href="#parceiros" class="btn btn--outline">Seja Parceiro</a>
+        <a href="#contato" class="btn btn--primary">Fale Conosco</a>
+      </div>
+
+      <button class="navbar__hamburger" id="hamburgerBtn" aria-label="Abrir menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ========== 2. HERO ========== -->
+  <section class="hero" id="inicio">
+    <div class="container hero__inner">
+      <div class="hero__content">
+        <p class="hero__tagline">🍦 Bem-vindo à Bomilak</p>
+        <!-- HEADLINE: mensagem principal da marca -->
+        <h1 class="hero__title">O frescor que <span class="highlight">derrete corações</span></h1>
+        <!-- SUBTÍTULO -->
+        <p class="hero__subtitle">
+          Picolés e sorvetes artesanais feitos com ingredientes selecionados.
+          Cada mordida é uma explosão de sabor que transforma momentos comuns em memórias.
+        </p>
+        <div class="hero__actions">
+          <a href="#produtos" class="btn btn--primary btn--large">Ver nossos sabores</a>
+          <a href="#video" class="btn--play" aria-label="Assistir vídeo">
+            <span class="play-icon">▶</span>
+            <span>Conheça nossa história</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="hero__visual">
+        <div class="hero__image-wrap">
+          <div class="hero__image-bg"></div>
+          <!-- IMAGEM HERO: substitua pelo produto/mascote -->
+          <!-- <img src="assets/images/hero-produto.png" alt="Picolés Bomilak" class="hero__image" /> -->
+          <div class="hero__image-placeholder"><span>🍧</span></div>
+        </div>
+
+        <div class="hero__float hero__float--left">
+          <span class="float-icon">😍</span>
+          <div>
+            <strong>Sabor aprovado!</strong>
+            <small>+4.200 avaliações</small>
+          </div>
+        </div>
+
+        <div class="hero__float hero__float--right">
+          <div class="float-stars">★★★★★</div>
+          <p>"Melhor picolé que já provei!"</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 3. DIFERENCIAIS ========== -->
+  <section class="diferenciais">
+    <div class="container diferenciais__grid">
+      <div class="diferencial-card">
+        <div class="diferencial-card__icon">🏆</div>
+        <h3>Qualidade Artesanal</h3>
+        <p>Ingredientes selecionados em cada produto.</p>
+      </div>
+      <div class="diferencial-card">
+        <div class="diferencial-card__icon">📍</div>
+        <h3>+50 Pontos de Venda</h3>
+        <p>Presença garantida em toda a nossa região.</p>
+      </div>
+      <div class="diferencial-card">
+        <div class="diferencial-card__icon">🎨</div>
+        <h3>+30 Sabores Únicos</h3>
+        <p>Linha completa para todos os gostos.</p>
+      </div>
+      <div class="diferencial-card">
+        <div class="diferencial-card__icon">💰</div>
+        <h3>Preço Justo</h3>
+        <p>Direto do produtor, sem intermediários.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 4. VITRINE DE PRODUTOS ========== -->
+  <section class="produtos" id="produtos">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">Nossas Criações</p>
+        <h2 class="section-title">Conheça nossa linha de sabores</h2>
+        <p class="section-desc">Feitos com frutas naturais e ingredientes de primeira linha.</p>
+        <a href="#catalogo" class="btn btn--primary">Ver todos os sabores</a>
+      </div>
+
+      <div class="produtos__grid">
+        <!-- PRODUTO: duplique este bloco para cada item -->
+        <article class="produto-card">
+          <!-- <img src="assets/images/produtos/morango.png" alt="Picolé de Morango" class="produto-card__img" /> -->
+          <div class="produto-card__img-placeholder">🍓</div>
+          <div class="produto-card__info">
+            <span class="produto-card__tag">Picolé Frutal</span>
+            <h3>Picolé de Morango</h3>
+            <p>Polpa de morango fresco com toque de leite condensado.</p>
+          </div>
+        </article>
+        <article class="produto-card">
+          <div class="produto-card__img-placeholder">🥭</div>
+          <div class="produto-card__info">
+            <span class="produto-card__tag">Picolé Tropical</span>
+            <h3>Picolé de Manga</h3>
+            <p>Manga Palmer com limão siciliano.</p>
+          </div>
+        </article>
+        <article class="produto-card">
+          <div class="produto-card__img-placeholder">🍫</div>
+          <div class="produto-card__info">
+            <span class="produto-card__tag">Sorvete Premium</span>
+            <h3>Duplo Chocolate</h3>
+            <p>Chocolate belga com cobertura crocante.</p>
+          </div>
+        </article>
+        <article class="produto-card">
+          <div class="produto-card__img-placeholder">🍋</div>
+          <div class="produto-card__info">
+            <span class="produto-card__tag">Refrescante</span>
+            <h3>Limão com Gengibre</h3>
+            <p>Limão taiti com gengibre natural.</p>
+          </div>
+        </article>
+        <article class="produto-card">
+          <div class="produto-card__img-placeholder">🍇</div>
+          <div class="produto-card__info">
+            <span class="produto-card__tag">Picolé Frutal</span>
+            <h3>Picolé de Uva</h3>
+            <p>Uva Itália concentrada em cada mordida.</p>
+          </div>
+        </article>
+        <article class="produto-card">
+          <div class="produto-card__img-placeholder">🥜</div>
+          <div class="produto-card__info">
+            <span class="produto-card__tag">Cremoso</span>
+            <h3>Amendoim com Caramelo</h3>
+            <p>Creme de amendoim com fio de caramelo.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 5. BANNER DESTAQUE ========== -->
+  <section class="banner-destaque" id="onde-encontrar">
+    <div class="container banner-destaque__inner">
+      <div class="banner-destaque__text">
+        <p class="banner-destaque__label">Presença na sua cidade</p>
+        <h2>Encontre a Bomilak<br />perto de você</h2>
+        <p>Nossos pontos de venda estão espalhados para levar frescor onde você estiver.</p>
+        <a href="#mapa" class="btn btn--white">Ver pontos de venda</a>
+      </div>
+      <div class="banner-destaque__stats">
+        <!-- NÚMEROS: atualize com dados reais -->
+        <div class="stat"><span class="stat__number">+50</span><span>Pontos de Venda</span></div>
+        <div class="stat"><span class="stat__number">5</span><span>Cidades</span></div>
+        <div class="stat"><span class="stat__number">+30</span><span>Sabores</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 6. SOBRE ========== -->
+  <section class="sobre" id="sobre">
+    <div class="container sobre__inner">
+      <div class="sobre__visual">
+        <!-- IMAGEM INSTITUCIONAL: foto de equipe ou produção -->
+        <!-- <img src="assets/images/sobre.jpg" alt="Equipe Bomilak" class="sobre__img" /> -->
+        <div class="sobre__img-placeholder">
+          <span>📸</span>
+          <p>Foto da equipe<br/>ou produção</p>
+        </div>
+        <div class="sobre__badge">
+          <span class="badge-number">100%</span>
+          <span class="badge-label">Artesanal</span>
+        </div>
+      </div>
+
+      <div class="sobre__content">
+        <p class="section-label">Nossa História</p>
+        <h2 class="section-title">Nascemos da paixão<br />pelo sabor genuíno</h2>
+        <!-- TEXTO INSTITUCIONAL -->
+        <p>A Bomilak nasceu do desejo de levar picolés e sorvetes feitos com cuidado e ingredientes de verdade. Começamos pequenos, com uma ideia grande.</p>
+        <p>Nossa missão é simples: transformar cada momento em uma memória doce, com responsabilidade e frescor.</p>
+        <ul class="sobre__valores">
+          <li>✅ Ingredientes naturais, sem conservantes artificiais</li>
+          <li>✅ Produção artesanal com controle rigoroso</li>
+          <li>✅ Compromisso com sabor e qualidade</li>
+        </ul>
+        <a href="#contato" class="btn btn--primary">Entre em contato</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 7. DEPOIMENTOS ========== -->
+  <section class="depoimentos">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">O que dizem sobre nós</p>
+        <h2 class="section-title">Clientes apaixonados</h2>
+      </div>
+      <div class="depoimentos__grid">
+        <!-- DEPOIMENTO: substitua por avaliações reais -->
+        <div class="depoimento-card">
+          <div class="depoimento-card__stars">★★★★★</div>
+          <p>"O picolé de manga é sensacional! Fruta de verdade. Virei cliente fiel!"</p>
+          <div class="depoimento-card__autor">
+            <div class="autor-foto-placeholder">👩</div>
+            <div>
+              <strong>Ana Silva</strong>
+              <span>São Paulo, SP</span>
+            </div>
+          </div>
+        </div>
+        <div class="depoimento-card depoimento-card--destaque">
+          <div class="depoimento-card__stars">★★★★★</div>
+          <p>"Compro toda semana! Meus filhos adoram e eu fico tranquilo porque é artesanal."</p>
+          <div class="depoimento-card__autor">
+            <div class="autor-foto-placeholder">👨</div>
+            <div>
+              <strong>Carlos Menezes</strong>
+              <span>Campinas, SP</span>
+            </div>
+          </div>
+        </div>
+        <div class="depoimento-card">
+          <div class="depoimento-card__stars">★★★★★</div>
+          <p>"Descobri o picolé de limão com gengibre e não largo mais. Outra categoria!"</p>
+          <div class="depoimento-card__autor">
+            <div class="autor-foto-placeholder">👩</div>
+            <div>
+              <strong>Fernanda Costa</strong>
+              <span>Rio de Janeiro, RJ</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 8. REDES SOCIAIS ========== -->
+  <section class="social">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">Siga a Bomilak</p>
+        <h2 class="section-title">Refrescando as suas redes</h2>
+      </div>
+      <div class="social__stats">
+        <!-- NÚMEROS DE ENGAJAMENTO: atualize -->
+        <div class="social-stat"><span class="social-stat__number">+500K</span><span>Visualizações</span></div>
+        <div class="social-stat"><span class="social-stat__number">+80K</span><span>Curtidas</span></div>
+        <div class="social-stat"><span class="social-stat__number">+15K</span><span>Seguidores</span></div>
+      </div>
+      <div class="social__links">
+        <!-- LINKS DAS REDES: substitua pelos perfis reais -->
+        <a href="https://instagram.com/bomilak" class="social-btn" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://facebook.com/bomilak" class="social-btn" target="_blank" rel="noopener">Facebook</a>
+        <a href="https://tiktok.com/@bomilak" class="social-btn" target="_blank" rel="noopener">TikTok</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 9. BLOG ========== -->
+  <section class="blog" id="blog">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">Últimas novidades</p>
+        <h2 class="section-title">Do nosso blog</h2>
+      </div>
+      <div class="blog__grid">
+        <!-- POST: duplique e atualize com artigos reais -->
+        <article class="blog-card">
+          <!-- <img src="assets/images/blog/post-1.jpg" alt="Título" class="blog-card__img" /> -->
+          <div class="blog-card__img-placeholder">📰</div>
+          <div class="blog-card__body">
+            <span class="blog-card__date">10 de abril, 2026</span>
+            <h3>Novos sabores chegaram ao cardápio!</h3>
+            <p>Conheça as novidades que preparamos para este verão...</p>
+            <a href="#post" class="blog-card__link">Leia mais →</a>
+          </div>
+        </article>
+        <article class="blog-card">
+          <div class="blog-card__img-placeholder">📰</div>
+          <div class="blog-card__body">
+            <span class="blog-card__date">22 de março, 2026</span>
+            <h3>Combinações perfeitas para cada momento</h3>
+            <p>Dicas de acompanhamentos e receitas para elevar seu picolé...</p>
+            <a href="#post" class="blog-card__link">Leia mais →</a>
+          </div>
+        </article>
+        <article class="blog-card">
+          <div class="blog-card__img-placeholder">📰</div>
+          <div class="blog-card__body">
+            <span class="blog-card__date">05 de fevereiro, 2026</span>
+            <h3>Por trás da nossa produção artesanal</h3>
+            <p>Um tour pelo processo que transforma frutas em picolés premiados...</p>
+            <a href="#post" class="blog-card__link">Leia mais →</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 10. CTA FINAL ========== -->
+  <section class="cta-final" id="contato">
+    <div class="container">
+      <h2>Pronto para experimentar a Bomilak?</h2>
+      <p>Entre em contato e descubra como levar nosso sabor para o seu dia.</p>
+      <div class="cta-final__actions">
+        <!-- LINKS: ajuste WhatsApp e e-mail reais -->
+        <a href="https://wa.me/55SEUNUMERO" class="btn btn--primary btn--large">Fale pelo WhatsApp</a>
+        <a href="mailto:contato@bomilak.com.br" class="btn btn--outline btn--large">Envie um e-mail</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <span class="logo-text logo-text--light">Bomilak</span>
+        <p>Picolés e sorvetes artesanais. Frescor em cada mordida.</p>
+      </div>
+      <div class="footer__col">
+        <h4>Navegação</h4>
+        <ul>
+          <li><a href="#produtos">Produtos</a></li>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#blog">Blog</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Contato</h4>
+        <ul>
+          <!-- DADOS REAIS -->
+          <li>📧 contato@bomilak.com.br</li>
+          <li>📱 (00) 0000-0000</li>
+          <li>📍 Sua cidade — UF</li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Siga-nos</h4>
+        <div class="footer__socials">
+          <a href="#" aria-label="Instagram">IG</a>
+          <a href="#" aria-label="Facebook">FB</a>
+          <a href="#" aria-label="TikTok">TK</a>
+          <a href="#" aria-label="YouTube">YT</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p>© 2026 Bomilak. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <script>
+    const btn = document.getElementById('hamburgerBtn');
+    const menu = document.getElementById('navMenu');
+    btn?.addEventListener('click', () => {
+      const open = menu.classList.toggle('is-open');
+      btn.setAttribute('aria-expanded', open);
+      btn.classList.toggle('is-active', open);
+    });
+  </script>
+</body>
+</html>
