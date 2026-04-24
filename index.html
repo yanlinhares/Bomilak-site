@@ -1,412 +1,559 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bomilak & Frenezito - Picolés e Sorvetes para Revenda</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* --- Variáveis e Reset --- */
+        :root {
+            --primary-color: #E60000; /* Vermelho Bomilak */
+            --primary-dark: #B30000;
+            --secondary-color: #FFFFFF; /* Branco */
+            --text-dark: #333333;
+            --text-light: #666666;
+            --bg-light: #F9F9F9;
+            --wa-color: #25D366; /* Verde Padrão WhatsApp para alta conversão */
+        }
 
-  <!-- TÍTULO E META: personalize para a Bomilak -->
-  <title>Bomilak — Picolés e Sorvetes Artesanais</title>
-  <meta name="description" content="Bomilak: picolés e sorvetes artesanais com sabor de verdade." />
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
 
-  <!-- FAVICON: substitua pelo ícone da marca -->
-  <!-- <link rel="icon" type="image/png" href="assets/images/favicon.png" /> -->
+        body {
+            background-color: var(--secondary-color);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
 
-  <!-- Fontes -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Poppins:wght@500;600;700;800;900&display=swap" rel="stylesheet" />
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
-  <link rel="stylesheet" href="style.css" />
+        /* --- Tipografia e Botões --- */
+        h1, h2, h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+            padding: 15px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: background 0.3s, transform 0.2s;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .btn:hover {
+            background-color: var(--primary-dark);
+            transform: scale(1.02);
+        }
+
+        .btn-wa {
+            background-color: var(--wa-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .btn-wa:hover {
+            background-color: #1ebc5a;
+        }
+
+        /* --- Header --- */
+        header {
+            background-color: var(--secondary-color);
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            color: var(--secondary-color);
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            color: var(--secondary-color);
+            font-size: 3rem;
+            max-width: 800px;
+            margin: 0 auto 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            opacity: 0.9;
+        }
+
+        .hero .btn {
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            padding: 18px 40px;
+        }
+
+        .hero .btn:hover {
+            background-color: var(--bg-light);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        /* --- Produtos --- */
+        .products {
+            padding: 80px 0;
+            background-color: var(--secondary-color);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 50px;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background: var(--bg-light);
+            border: 2px solid #EEEEEE;
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            transition: border-color 0.3s, transform 0.3s;
+        }
+
+        .product-card:hover {
+            border-color: var(--primary-color);
+            transform: translateY(-5px);
+        }
+
+        .product-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .product-card h3 {
+            font-size: 1.5rem;
+            color: var(--text-dark);
+        }
+
+        .product-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* --- História --- */
+        .history {
+            padding: 80px 0;
+            background-color: var(--bg-light);
+        }
+
+        .history .container {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .history-text {
+            flex: 1;
+        }
+
+        .history-text p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .history-image {
+            flex: 1;
+            background: var(--primary-color);
+            height: 300px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 4rem;
+            opacity: 0.1; /* Placeholder para imagem real */
+            background-image: linear-gradient(45deg, #e60000 25%, #cc0000 25%, #cc0000 50%, #e60000 50%, #e60000 75%, #cc0000 75%, #cc0000 100%);
+            background-size: 20px 20px;
+        }
+
+        /* --- FAQ --- */
+        .faq {
+            padding: 80px 0;
+            background-color: var(--secondary-color);
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #EEEEEE;
+            padding: 20px 0;
+        }
+
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1.2rem;
+            color: var(--text-dark);
+            transition: color 0.3s;
+        }
+
+        .faq-question:hover {
+            color: var(--primary-color);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out;
+            color: var(--text-light);
+            margin-top: 0;
+            padding-right: 40px;
+        }
+
+        .faq-answer.active {
+            margin-top: 15px;
+            max-height: 200px; /* Ajuste se o texto for muito longo */
+        }
+
+        .faq-question i {
+            color: var(--primary-color);
+            transition: transform 0.3s;
+        }
+
+        .faq-question.active i {
+            transform: rotate(180deg);
+        }
+
+        /* --- Testimonials --- */
+        .testimonials {
+            padding: 80px 0;
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+            text-align: center;
+        }
+
+        .testimonials .section-title {
+            color: var(--secondary-color);
+        }
+
+        .test-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .test-card {
+            background-color: var(--secondary-color);
+            color: var(--text-dark);
+            padding: 30px;
+            border-radius: 12px;
+            text-align: left;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .stars {
+            color: #FFD700;
+            margin-bottom: 15px;
+        }
+
+        .test-card p {
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        .test-author {
+            font-weight: 600;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* --- Redes Sociais --- */
+        .social {
+            padding: 60px 0;
+            text-align: center;
+            background-color: var(--bg-light);
+        }
+
+        .social p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: var(--text-light);
+        }
+
+        .social-icons a {
+            display: inline-block;
+            margin: 0 10px;
+            font-size: 2rem;
+            color: var(--primary-color);
+            transition: transform 0.3s;
+        }
+
+        .social-icons a:hover {
+            transform: scale(1.2);
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: var(--text-dark);
+            color: var(--secondary-color);
+            padding: 40px 0 20px;
+            text-align: center;
+        }
+
+        footer p {
+            opacity: 0.7;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        /* --- Floating WhatsApp Button --- */
+        .float-wa {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--wa-color);
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 35px;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: transform 0.3s;
+            animation: pulse 2s infinite;
+        }
+
+        .float-wa:hover {
+            transform: scale(1.1);
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
+        /* --- Responsivo --- */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            .history .container { flex-direction: column; }
+            .history-image { width: 100%; height: 200px; }
+            .float-wa { bottom: 20px; right: 20px; width: 50px; height: 50px; font-size: 28px; }
+        }
+    </style>
 </head>
 <body>
 
-  <!-- ========== 1. NAVBAR ========== -->
-  <header class="navbar" id="navbar">
-    <div class="container navbar__inner">
-      <!-- LOGO: troque pela imagem real da Bomilak -->
-      <a href="#inicio" class="navbar__logo" aria-label="Bomilak">
-        <!-- <img src="assets/images/logo-bomilak.svg" alt="Bomilak" width="150" height="44" /> -->
-        <span class="logo-text">Bomilak</span>
-      </a>
-
-      <!-- MENU principal -->
-      <nav class="navbar__menu" id="navMenu" aria-label="Navegação">
-        <ul>
-          <li><a href="#produtos">Produtos</a></li>
-          <li><a href="#sobre">Sobre</a></li>
-          <li><a href="#onde-encontrar">Onde Encontrar</a></li>
-          <li><a href="#blog">Blog</a></li>
-          <li><a href="#contato">Contato</a></li>
-        </ul>
-      </nav>
-
-      <div class="navbar__ctas">
-        <a href="#parceiros" class="btn btn--outline">Seja Parceiro</a>
-        <a href="#contato" class="btn btn--primary">Fale Conosco</a>
-      </div>
-
-      <button class="navbar__hamburger" id="hamburgerBtn" aria-label="Abrir menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </header>
-
-  <!-- ========== 2. HERO ========== -->
-  <section class="hero" id="inicio">
-    <div class="container hero__inner">
-      <div class="hero__content">
-        <p class="hero__tagline">🍦 Bem-vindo à Bomilak</p>
-        <!-- HEADLINE: mensagem principal da marca -->
-        <h1 class="hero__title">O frescor que <span class="highlight">derrete corações</span></h1>
-        <!-- SUBTÍTULO -->
-        <p class="hero__subtitle">
-          Picolés e sorvetes artesanais feitos com ingredientes selecionados.
-          Cada mordida é uma explosão de sabor que transforma momentos comuns em memórias.
-        </p>
-        <div class="hero__actions">
-          <a href="#produtos" class="btn btn--primary btn--large">Ver nossos sabores</a>
-          <a href="#video" class="btn--play" aria-label="Assistir vídeo">
-            <span class="play-icon">▶</span>
-            <span>Conheça nossa história</span>
-          </a>
+    <header>
+        <div class="container">
+            <a href="#" class="logo">BOMILAK <span style="font-weight: 300;">| Frenezito</span></a>
+            <a href="#whatsapp" class="btn btn-wa" style="padding: 10px 20px; font-size: 1rem;"><i class="fab fa-whatsapp"></i> Seja Revendedor</a>
         </div>
-      </div>
+    </header>
 
-      <div class="hero__visual">
-        <div class="hero__image-wrap">
-          <div class="hero__image-bg"></div>
-          <!-- IMAGEM HERO: substitua pelo produto/mascote -->
-          <!-- <img src="assets/images/hero-produto.png" alt="Picolés Bomilak" class="hero__image" /> -->
-          <div class="hero__image-placeholder"><span>🍧</span></div>
+    <section class="hero">
+        <div class="container">
+            <h1>Aumente o Faturamento da sua Loja com Produtos de Alto Giro</h1>
+            <p>Picolés e Sorvetes Bomilak & Frenezito: O impulso de vendas que atrai famílias, melhora o ticket médio e deixa margens reais no seu caixa. Entrega garantida e foco no pequeno varejo.</p>
+            <a href="#whatsapp" class="btn">Quero vender na minha loja</a>
         </div>
+    </section>
 
-        <div class="hero__float hero__float--left">
-          <span class="float-icon">😍</span>
-          <div>
-            <strong>Sabor aprovado!</strong>
-            <small>+4.200 avaliações</small>
-          </div>
-        </div>
-
-        <div class="hero__float hero__float--right">
-          <div class="float-stars">★★★★★</div>
-          <p>"Melhor picolé que já provei!"</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== 3. DIFERENCIAIS ========== -->
-  <section class="diferenciais">
-    <div class="container diferenciais__grid">
-      <div class="diferencial-card">
-        <div class="diferencial-card__icon">🏆</div>
-        <h3>Qualidade Artesanal</h3>
-        <p>Ingredientes selecionados em cada produto.</p>
-      </div>
-      <div class="diferencial-card">
-        <div class="diferencial-card__icon">📍</div>
-        <h3>+50 Pontos de Venda</h3>
-        <p>Presença garantida em toda a nossa região.</p>
-      </div>
-      <div class="diferencial-card">
-        <div class="diferencial-card__icon">🎨</div>
-        <h3>+30 Sabores Únicos</h3>
-        <p>Linha completa para todos os gostos.</p>
-      </div>
-      <div class="diferencial-card">
-        <div class="diferencial-card__icon">💰</div>
-        <h3>Preço Justo</h3>
-        <p>Direto do produtor, sem intermediários.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== 4. VITRINE DE PRODUTOS ========== -->
-  <section class="produtos" id="produtos">
-    <div class="container">
-      <div class="section-header">
-        <p class="section-label">Nossas Criações</p>
-        <h2 class="section-title">Conheça nossa linha de sabores</h2>
-        <p class="section-desc">Feitos com frutas naturais e ingredientes de primeira linha.</p>
-        <a href="#catalogo" class="btn btn--primary">Ver todos os sabores</a>
-      </div>
-
-      <div class="produtos__grid">
-        <!-- PRODUTO: duplique este bloco para cada item -->
-        <article class="produto-card">
-          <!-- <img src="assets/images/produtos/morango.png" alt="Picolé de Morango" class="produto-card__img" /> -->
-          <div class="produto-card__img-placeholder">🍓</div>
-          <div class="produto-card__info">
-            <span class="produto-card__tag">Picolé Frutal</span>
-            <h3>Picolé de Morango</h3>
-            <p>Polpa de morango fresco com toque de leite condensado.</p>
-          </div>
-        </article>
-        <article class="produto-card">
-          <div class="produto-card__img-placeholder">🥭</div>
-          <div class="produto-card__info">
-            <span class="produto-card__tag">Picolé Tropical</span>
-            <h3>Picolé de Manga</h3>
-            <p>Manga Palmer com limão siciliano.</p>
-          </div>
-        </article>
-        <article class="produto-card">
-          <div class="produto-card__img-placeholder">🍫</div>
-          <div class="produto-card__info">
-            <span class="produto-card__tag">Sorvete Premium</span>
-            <h3>Duplo Chocolate</h3>
-            <p>Chocolate belga com cobertura crocante.</p>
-          </div>
-        </article>
-        <article class="produto-card">
-          <div class="produto-card__img-placeholder">🍋</div>
-          <div class="produto-card__info">
-            <span class="produto-card__tag">Refrescante</span>
-            <h3>Limão com Gengibre</h3>
-            <p>Limão taiti com gengibre natural.</p>
-          </div>
-        </article>
-        <article class="produto-card">
-          <div class="produto-card__img-placeholder">🍇</div>
-          <div class="produto-card__info">
-            <span class="produto-card__tag">Picolé Frutal</span>
-            <h3>Picolé de Uva</h3>
-            <p>Uva Itália concentrada em cada mordida.</p>
-          </div>
-        </article>
-        <article class="produto-card">
-          <div class="produto-card__img-placeholder">🥜</div>
-          <div class="produto-card__info">
-            <span class="produto-card__tag">Cremoso</span>
-            <h3>Amendoim com Caramelo</h3>
-            <p>Creme de amendoim com fio de caramelo.</p>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== 5. BANNER DESTAQUE ========== -->
-  <section class="banner-destaque" id="onde-encontrar">
-    <div class="container banner-destaque__inner">
-      <div class="banner-destaque__text">
-        <p class="banner-destaque__label">Presença na sua cidade</p>
-        <h2>Encontre a Bomilak<br />perto de você</h2>
-        <p>Nossos pontos de venda estão espalhados para levar frescor onde você estiver.</p>
-        <a href="#mapa" class="btn btn--white">Ver pontos de venda</a>
-      </div>
-      <div class="banner-destaque__stats">
-        <!-- NÚMEROS: atualize com dados reais -->
-        <div class="stat"><span class="stat__number">+50</span><span>Pontos de Venda</span></div>
-        <div class="stat"><span class="stat__number">5</span><span>Cidades</span></div>
-        <div class="stat"><span class="stat__number">+30</span><span>Sabores</span></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== 6. SOBRE ========== -->
-  <section class="sobre" id="sobre">
-    <div class="container sobre__inner">
-      <div class="sobre__visual">
-        <!-- IMAGEM INSTITUCIONAL: foto de equipe ou produção -->
-        <!-- <img src="assets/images/sobre.jpg" alt="Equipe Bomilak" class="sobre__img" /> -->
-        <div class="sobre__img-placeholder">
-          <span>📸</span>
-          <p>Foto da equipe<br/>ou produção</p>
-        </div>
-        <div class="sobre__badge">
-          <span class="badge-number">100%</span>
-          <span class="badge-label">Artesanal</span>
-        </div>
-      </div>
-
-      <div class="sobre__content">
-        <p class="section-label">Nossa História</p>
-        <h2 class="section-title">Nascemos da paixão<br />pelo sabor genuíno</h2>
-        <!-- TEXTO INSTITUCIONAL -->
-        <p>A Bomilak nasceu do desejo de levar picolés e sorvetes feitos com cuidado e ingredientes de verdade. Começamos pequenos, com uma ideia grande.</p>
-        <p>Nossa missão é simples: transformar cada momento em uma memória doce, com responsabilidade e frescor.</p>
-        <ul class="sobre__valores">
-          <li>✅ Ingredientes naturais, sem conservantes artificiais</li>
-          <li>✅ Produção artesanal com controle rigoroso</li>
-          <li>✅ Compromisso com sabor e qualidade</li>
-        </ul>
-        <a href="#contato" class="btn btn--primary">Entre em contato</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== 7. DEPOIMENTOS ========== -->
-  <section class="depoimentos">
-    <div class="container">
-      <div class="section-header">
-        <p class="section-label">O que dizem sobre nós</p>
-        <h2 class="section-title">Clientes apaixonados</h2>
-      </div>
-      <div class="depoimentos__grid">
-        <!-- DEPOIMENTO: substitua por avaliações reais -->
-        <div class="depoimento-card">
-          <div class="depoimento-card__stars">★★★★★</div>
-          <p>"O picolé de manga é sensacional! Fruta de verdade. Virei cliente fiel!"</p>
-          <div class="depoimento-card__autor">
-            <div class="autor-foto-placeholder">👩</div>
-            <div>
-              <strong>Ana Silva</strong>
-              <span>São Paulo, SP</span>
+    <section class="products">
+        <div class="container">
+            <h2 class="section-title">Nossa Linha de Produtos</h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <i class="fas fa-ice-cream product-icon"></i>
+                    <h3>Picolés Frenezito</h3>
+                    <p>O favorito da criançada. Baixo valor de compra, alta saída. Ideal para compras por impulso e não ocupa muito espaço no seu congelador.</p>
+                </div>
+                <div class="product-card">
+                    <i class="fas fa-snowflake product-icon"></i>
+                    <h3>Sorvetes Tradicionais</h3>
+                    <p>Potinhos e caixas pensados para a sobremesa da família local. Fáceis de armazenar e com excelente margem de lucro para você.</p>
+                </div>
+                <div class="product-card">
+                    <i class="fas fa-box-open product-icon"></i>
+                    <h3>Caixas Fracionadas</h3>
+                    <p>Sabemos que falta capital de giro. Por isso, oferecemos fardos e caixas em tamanhos menores para você repor o estoque sem estourar o orçamento.</p>
+                </div>
             </div>
-          </div>
         </div>
-        <div class="depoimento-card depoimento-card--destaque">
-          <div class="depoimento-card__stars">★★★★★</div>
-          <p>"Compro toda semana! Meus filhos adoram e eu fico tranquilo porque é artesanal."</p>
-          <div class="depoimento-card__autor">
-            <div class="autor-foto-placeholder">👨</div>
-            <div>
-              <strong>Carlos Menezes</strong>
-              <span>Campinas, SP</span>
+    </section>
+
+    <section class="history">
+        <div class="container">
+            <div class="history-text">
+                <h2>Nossa História: Parceiros de Balcão</h2>
+                <p>Nascemos e crescemos entendendo a realidade de quem acorda cedo e dorme tarde para manter as portas da sua mercearia abertas na RMF. Sabemos que você não tem tempo a perder com e-mails longos ou fornecedores que atrasam.</p>
+                <p>A Bomilak construiu sua reputação com base em uma premissa simples: <strong>entregar o combinado, na hora certa, com a nota certinha</strong>. Nosso compromisso não é apenas vender sorvete, é garantir que sua prateleira não fique vazia e que você nunca rasgue dinheiro com produtos encalhados ou vencidos.</p>
             </div>
-          </div>
-        </div>
-        <div class="depoimento-card">
-          <div class="depoimento-card__stars">★★★★★</div>
-          <p>"Descobri o picolé de limão com gengibre e não largo mais. Outra categoria!"</p>
-          <div class="depoimento-card__autor">
-            <div class="autor-foto-placeholder">👩</div>
-            <div>
-              <strong>Fernanda Costa</strong>
-              <span>Rio de Janeiro, RJ</span>
+            <div class="history-image">
+                <i class="fas fa-handshake"></i>
             </div>
-          </div>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ========== 8. REDES SOCIAIS ========== -->
-  <section class="social">
-    <div class="container">
-      <div class="section-header">
-        <p class="section-label">Siga a Bomilak</p>
-        <h2 class="section-title">Refrescando as suas redes</h2>
-      </div>
-      <div class="social__stats">
-        <!-- NÚMEROS DE ENGAJAMENTO: atualize -->
-        <div class="social-stat"><span class="social-stat__number">+500K</span><span>Visualizações</span></div>
-        <div class="social-stat"><span class="social-stat__number">+80K</span><span>Curtidas</span></div>
-        <div class="social-stat"><span class="social-stat__number">+15K</span><span>Seguidores</span></div>
-      </div>
-      <div class="social__links">
-        <!-- LINKS DAS REDES: substitua pelos perfis reais -->
-        <a href="https://instagram.com/bomilak" class="social-btn" target="_blank" rel="noopener">Instagram</a>
-        <a href="https://facebook.com/bomilak" class="social-btn" target="_blank" rel="noopener">Facebook</a>
-        <a href="https://tiktok.com/@bomilak" class="social-btn" target="_blank" rel="noopener">TikTok</a>
-      </div>
-    </div>
-  </section>
+    <section class="faq">
+        <div class="container" style="max-width: 800px;">
+            <h2 class="section-title">Dúvidas Frequentes</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">Preciso comprar em grandes quantidades? <i class="fas fa-chevron-down"></i></div>
+                <div class="faq-answer">Não. Sabemos que o espaço do congelador é limitado. Oferecemos quantidades menores de caixas e fardos para que você tenha produtos sempre frescos e não trave seu capital de giro.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Como funciona a entrega? <i class="fas fa-chevron-down"></i></div>
+                <div class="faq-answer">Entregamos exatamente nas datas combinadas, semanalmente ou quinzenalmente. O proprietário ou vendedor entra em contato direto com você (via WhatsApp) de forma rápida e direta.</div>
+            </div>
 
-  <!-- ========== 9. BLOG ========== -->
-  <section class="blog" id="blog">
-    <div class="container">
-      <div class="section-header">
-        <p class="section-label">Últimas novidades</p>
-        <h2 class="section-title">Do nosso blog</h2>
-      </div>
-      <div class="blog__grid">
-        <!-- POST: duplique e atualize com artigos reais -->
-        <article class="blog-card">
-          <!-- <img src="assets/images/blog/post-1.jpg" alt="Título" class="blog-card__img" /> -->
-          <div class="blog-card__img-placeholder">📰</div>
-          <div class="blog-card__body">
-            <span class="blog-card__date">10 de abril, 2026</span>
-            <h3>Novos sabores chegaram ao cardápio!</h3>
-            <p>Conheça as novidades que preparamos para este verão...</p>
-            <a href="#post" class="blog-card__link">Leia mais →</a>
-          </div>
-        </article>
-        <article class="blog-card">
-          <div class="blog-card__img-placeholder">📰</div>
-          <div class="blog-card__body">
-            <span class="blog-card__date">22 de março, 2026</span>
-            <h3>Combinações perfeitas para cada momento</h3>
-            <p>Dicas de acompanhamentos e receitas para elevar seu picolé...</p>
-            <a href="#post" class="blog-card__link">Leia mais →</a>
-          </div>
-        </article>
-        <article class="blog-card">
-          <div class="blog-card__img-placeholder">📰</div>
-          <div class="blog-card__body">
-            <span class="blog-card__date">05 de fevereiro, 2026</span>
-            <h3>Por trás da nossa produção artesanal</h3>
-            <p>Um tour pelo processo que transforma frutas em picolés premiados...</p>
-            <a href="#post" class="blog-card__link">Leia mais →</a>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
+            <div class="faq-item">
+                <div class="faq-question">Vocês ajudam com congeladores/equipamentos? <i class="fas fa-chevron-down"></i></div>
+                <div class="faq-answer">Trabalhamos em parceria com nossos clientes de confiança. Chame nosso consultor no WhatsApp para entendermos a realidade do seu estabelecimento físico e as possibilidades de comodato.</div>
+            </div>
 
-  <!-- ========== 10. CTA FINAL ========== -->
-  <section class="cta-final" id="contato">
-    <div class="container">
-      <h2>Pronto para experimentar a Bomilak?</h2>
-      <p>Entre em contato e descubra como levar nosso sabor para o seu dia.</p>
-      <div class="cta-final__actions">
-        <!-- LINKS: ajuste WhatsApp e e-mail reais -->
-        <a href="https://wa.me/55SEUNUMERO" class="btn btn--primary btn--large">Fale pelo WhatsApp</a>
-        <a href="mailto:contato@bomilak.com.br" class="btn btn--outline btn--large">Envie um e-mail</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== FOOTER ========== -->
-  <footer class="footer">
-    <div class="container footer__inner">
-      <div class="footer__brand">
-        <span class="logo-text logo-text--light">Bomilak</span>
-        <p>Picolés e sorvetes artesanais. Frescor em cada mordida.</p>
-      </div>
-      <div class="footer__col">
-        <h4>Navegação</h4>
-        <ul>
-          <li><a href="#produtos">Produtos</a></li>
-          <li><a href="#sobre">Sobre</a></li>
-          <li><a href="#blog">Blog</a></li>
-          <li><a href="#contato">Contato</a></li>
-        </ul>
-      </div>
-      <div class="footer__col">
-        <h4>Contato</h4>
-        <ul>
-          <!-- DADOS REAIS -->
-          <li>📧 contato@bomilak.com.br</li>
-          <li>📱 (00) 0000-0000</li>
-          <li>📍 Sua cidade — UF</li>
-        </ul>
-      </div>
-      <div class="footer__col">
-        <h4>Siga-nos</h4>
-        <div class="footer__socials">
-          <a href="#" aria-label="Instagram">IG</a>
-          <a href="#" aria-label="Facebook">FB</a>
-          <a href="#" aria-label="TikTok">TK</a>
-          <a href="#" aria-label="YouTube">YT</a>
+            <div class="faq-item">
+                <div class="faq-question">Vocês dão crédito para compra? <i class="fas fa-chevron-down"></i></div>
+                <div class="faq-answer">Sim! Temos condições facilitadas de crédito para que você possa comprar, revender e manter seu fluxo de caixa saudável, longe da dor de cabeça do "fiado" sem fundo.</div>
+            </div>
         </div>
-      </div>
-    </div>
-    <div class="footer__bottom">
-      <p>© 2026 Bomilak. Todos os direitos reservados.</p>
-    </div>
-  </footer>
+    </section>
 
-  <script>
-    const btn = document.getElementById('hamburgerBtn');
-    const menu = document.getElementById('navMenu');
-    btn?.addEventListener('click', () => {
-      const open = menu.classList.toggle('is-open');
-      btn.setAttribute('aria-expanded', open);
-      btn.classList.toggle('is-active', open);
-    });
-  </script>
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">Clientes Apaixonados (E Lucrando)</h2>
+            <div class="test-grid">
+                <div class="test-card">
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p>"Antes eu perdia venda porque o fornecedor sumia. Com a Bomilak, eu peço pelo zap rapidinho, o caminhão chega no dia certo e o picolé vende sozinho pra criançada do bairro."</p>
+                    <div class="test-author">
+                        <i class="fas fa-store" style="color: #666;"></i>
+                        <span>Seu José, Dono de Mercearia</span>
+                    </div>
+                </div>
+                <div class="test-card">
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p>"O que mais me ajuda é a flexibilidade. Consigo comprar fardos menores, não estoco demais e meu caixa no final do mês sobra mais. O Frenezito é sucesso na lanchonete."</p>
+                    <div class="test-author">
+                        <i class="fas fa-store" style="color: #666;"></i>
+                        <span>Marcos, Gerente de Lanchonete</span>
+                    </div>
+                </div>
+                <div class="test-card">
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p>"Atendimento direto ao ponto. O vendedor me entende, sabe da minha correria e me manda só o que vende rápido. Margem boa e produto que não vence na prateleira."</p>
+                    <div class="test-author">
+                        <i class="fas fa-store" style="color: #666;"></i>
+                        <span>Ana, Açaí & Conveniência</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="social">
+        <div class="container">
+            <h2 class="section-title" style="margin-bottom: 10px;">Refrescando suas Redes</h2>
+            <p>Siga a Bomilak para ver as novidades que vão atrair mais clientes para sua loja.</p>
+            <div class="social-icons">
+                <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-facebook-square"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p><strong>Bomilak & Frenezito</strong> - Indústria de Sorvetes e Picolés</p>
+            <p>Atendendo com orgulho toda a RMF (Região Metropolitana de Fortaleza)</p>
+            <p>&copy; 2026 Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/5585900000000?text=Olá,%20tenho%20um%20estabelecimento%20e%20quero%20ser%20revendedor%20Bomilak!" class="float-wa" target="_blank" id="whatsapp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const faqQuestions = document.querySelectorAll('.faq-question');
+
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', () => {
+                    const answer = question.nextElementSibling;
+                    const isActive = question.classList.contains('active');
+
+                    // Fecha todos os outros
+                    document.querySelectorAll('.faq-answer').forEach(ans => {
+                        ans.classList.remove('active');
+                        ans.style.maxHeight = null;
+                        ans.previousElementSibling.classList.remove('active');
+                    });
+
+                    // Abre o clicado se não estava ativo
+                    if (!isActive) {
+                        question.classList.add('active');
+                        answer.classList.add('active');
+                        answer.style.maxHeight = answer.scrollHeight + 30 + "px"; // +30 para margens
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
