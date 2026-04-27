@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Bomilak — Picolés e Sorvetes para Revenda | Lucro que derrete na boca</title>
-<meta name="description" content="Indústria de picolés e sorvetes para mercearias, lojas de açaí, conveniências e lanchonetes. Entrega rápida, fardos pequenos e margem de verdade. Fale no WhatsApp." />
+<meta name="description" content="Indústria de picolés e sorvetes para mercearias, lojas de açaí, conveniências e lanchonetes. Entrega rápida, pedido pequeno e margem de verdade. Fale no WhatsApp." />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,7 +15,7 @@
     --red: #E11D2E;
     --red-deep: #B0121F;
     --red-dark: #7A0A14;
-    --cream: #FFF7EC;
+    --cream: #FFFFFF;
     --butter: #FFD84A;
     --butter-soft: #FFEDA0;
     --ink: #1A0B0D;
@@ -436,8 +436,8 @@
   }
   .produtos-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
   }
   .produto-card {
     background: var(--cream);
@@ -447,6 +447,8 @@
     transition: transform .3s, box-shadow .3s;
     position: relative;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
   }
   .produto-card:hover {
     transform: translateY(-6px);
@@ -463,10 +465,15 @@
   }
   .produto-visual svg { width: 70%; height: 70%; }
 
-  .pc-1 .produto-visual { background: linear-gradient(135deg, #FFE4B5, #FFB3BF); }
-  .pc-2 .produto-visual { background: linear-gradient(135deg, #BEE8D9, #7DD3C0); }
-  .pc-3 .produto-visual { background: linear-gradient(135deg, #FFD84A, #FF9800); }
-  .pc-4 .produto-visual { background: linear-gradient(135deg, #E8C4A0, #8B4513); }
+  .pc-1 .produto-visual { background: linear-gradient(135deg, #E8C4A0, #5D3A1A); }
+  .pc-2 .produto-visual { background: linear-gradient(135deg, #FFE4B5, #FFB3BF); }
+  .pc-3 .produto-visual { background: linear-gradient(135deg, #BEE8D9, #7DD3C0); }
+  .pc-4 .produto-visual { background: linear-gradient(135deg, #FFD84A, #FF9800); }
+  .pc-5 .produto-visual { background: linear-gradient(135deg, #FFC0CB, #FF5470); }
+  .pc-6 .produto-visual { background: linear-gradient(135deg, #F5DEB3, #D4A574); }
+  .pc-7 .produto-visual { background: linear-gradient(135deg, #B19CD9, #6A4C93); }
+  .pc-8 .produto-visual { background: linear-gradient(135deg, #E6BE8A, #8B4513); }
+  .pc-9 .produto-visual { background: linear-gradient(135deg, #87CEEB, #FFB3BF); }
 
   .produto-tag {
     display: inline-block;
@@ -490,6 +497,24 @@
   .produto-card p {
     font-size: 14px;
     color: #5A474A;
+    margin-bottom: 14px;
+  }
+  .produto-sabores {
+    margin-top: auto;
+    padding-top: 14px;
+    border-top: 1.5px dashed rgba(26,11,13,0.15);
+    font-size: 12.5px;
+    color: #5A474A;
+    line-height: 1.5;
+  }
+  .produto-sabores strong {
+    display: block;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--red);
+    margin-bottom: 6px;
   }
 
   /* ---------- HISTÓRIA ---------- */
@@ -1035,7 +1060,7 @@
       <a href="#faq">Dúvidas</a>
       <a href="#depoimentos">Revendedores</a>
     </div>
-    <a href="https://wa.me/5585999999999?text=Ol%C3%A1!%20Quero%20revender%20Bomilak%20na%20minha%20loja" class="nav-cta" target="_blank">Revender agora →</a>
+    <a href="https://wa.me/5585991447566?text=Ol%C3%A1!%20Quero%20revender%20Bomilak%20na%20minha%20loja" class="nav-cta" target="_blank">Revender agora →</a>
     <button class="burger" aria-label="Menu">☰</button>
   </div>
 </nav>
@@ -1046,9 +1071,9 @@
     <div>
       <div class="hero-badge"><span class="dot"></span> Entregamos hoje na RMF</div>
       <h1>Picolé bom <em>vende sozinho</em>. A gente só entrega rápido.</h1>
-      <p class="lead">Indústria cearense de picolés e sorvetes para mercearias, lojas de açaí, conveniências e lanchonetes. Fardo pequeno, margem cheia e o vendedor te atende no WhatsApp.</p>
+      <p class="lead">Indústria cearense de picolés e sorvetes para mercearias, lojas de açaí, conveniências e lanchonetes. Pedido pequeno, margem cheia e o vendedor te atende no WhatsApp.</p>
       <div class="hero-cta">
-        <a href="https://wa.me/5585999999999?text=Ol%C3%A1!%20Quero%20ser%20revendedor%20Bomilak" target="_blank" class="btn btn-primary">
+        <a href="https://wa.me/5585991447566?text=Ol%C3%A1!%20Quero%20ser%20revendedor%20Bomilak" target="_blank" class="btn btn-primary">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413"/></svg>
           Quero revender no WhatsApp
         </a>
@@ -1056,11 +1081,11 @@
       </div>
       <div class="hero-stats">
         <div>
-          <strong>+1.300</strong>
+          <strong>+600</strong>
           <span>Pontos de venda ativos</span>
         </div>
         <div>
-          <strong>+100</strong>
+          <strong>+30</strong>
           <span>Sabores e variações</span>
         </div>
         <div>
@@ -1079,9 +1104,9 @@
       </div>
       <div class="floating-badge fb-1">
         <strong>⭐ 4.9/5</strong>
-        <span style="font-size:12px;color:#5A474A">De +800 revendedores</span>
+        <span style="font-size:12px;color:#5A474A">De +600 revendedores</span>
       </div>
-      <div class="floating-badge fb-2">🚚 Entrega em fardo pequeno</div>
+      <div class="floating-badge fb-2">🚚 Pedido pequeno aceito</div>
     </div>
   </div>
 </section>
@@ -1089,8 +1114,8 @@
 <!-- MARQUEE -->
 <div class="marquee">
   <div class="marquee-track">
-    <span>Fábrica própria</span><span>Entrega rápida</span><span>Margem cheia</span><span>Mais de 100 sabores</span><span>Atendimento no zap</span><span>Desde 1995</span>
-    <span>Fábrica própria</span><span>Entrega rápida</span><span>Margem cheia</span><span>Mais de 100 sabores</span><span>Atendimento no zap</span><span>Desde 1995</span>
+    <span>Fábrica própria</span><span>Entrega rápida</span><span>Margem cheia</span><span>+30 sabores</span><span>Atendimento no zap</span><span>Desde 1998</span>
+    <span>Fábrica própria</span><span>Entrega rápida</span><span>Margem cheia</span><span>+30 sabores</span><span>Atendimento no zap</span><span>Desde 1998</span>
   </div>
 </div>
 
@@ -1102,68 +1127,189 @@
         <span class="eyebrow">Nossa linha</span>
         <h2 class="section-title">Um sabor <em>pra cada</em> prateleira.</h2>
       </div>
-      <p class="section-lead">Da conveniência ao mercadinho de bairro: SKUs que giram rápido, não ocupam o congelador inteiro e fazem o cliente voltar amanhã.</p>
+      <p class="section-lead">Da conveniência ao mercadinho de bairro: produtos que giram rápido, não ocupam o congelador inteiro e fazem o cliente voltar amanhã.</p>
     </div>
 
     <div class="produtos-grid">
+
+      <!-- 1. MEGALAK -->
       <div class="produto-card pc-1">
         <div class="produto-visual">
           <svg viewBox="0 0 100 140" xmlns="http://www.w3.org/2000/svg">
-            <rect x="25" y="10" width="50" height="90" rx="25" fill="#FF5470"/>
-            <rect x="32" y="15" width="8" height="30" rx="4" fill="rgba(255,255,255,0.4)"/>
+            <rect x="25" y="10" width="50" height="90" rx="8" fill="#5D3A1A"/>
+            <rect x="29" y="14" width="42" height="20" rx="4" fill="#FFD84A"/>
             <rect x="46" y="100" width="8" height="35" rx="2" fill="#8B4513"/>
+            <circle cx="38" cy="55" r="3" fill="#FFD84A"/>
+            <circle cx="58" cy="65" r="3" fill="#FFD84A"/>
+            <circle cx="48" cy="78" r="3" fill="#FFD84A"/>
           </svg>
         </div>
-        <span class="produto-tag">Clássico</span>
-        <h3>Picolés de Fruta</h3>
-        <p>Morango, maracujá, uva, limão, coco — o básico bem feito que nunca sai de moda.</p>
+        <span class="produto-tag">Cobertura</span>
+        <h3>Megalak</h3>
+        <p>Picolé com cobertura crocante — o queridinho de quem quer comer algo mais robusto.</p>
+        <div class="produto-sabores">
+          <strong>Sabores</strong>
+          Chocolate, chocolate branco, sensação, flocos, napolitano
+        </div>
       </div>
 
+      <!-- 2. EXTRA CREMOSO -->
       <div class="produto-card pc-2">
         <div class="produto-visual">
           <svg viewBox="0 0 100 140" xmlns="http://www.w3.org/2000/svg">
-            <rect x="25" y="10" width="50" height="90" rx="25" fill="#7DD3C0"/>
-            <circle cx="40" cy="40" r="5" fill="#fff"/>
-            <circle cx="55" cy="55" r="4" fill="#fff"/>
-            <circle cx="45" cy="70" r="6" fill="#fff"/>
-            <rect x="46" y="100" width="8" height="35" rx="2" fill="#8B4513"/>
+            <ellipse cx="50" cy="55" rx="32" ry="42" fill="#FFE4B5"/>
+            <ellipse cx="50" cy="55" rx="22" ry="30" fill="#FFB3BF" opacity="0.6"/>
+            <rect x="46" y="95" width="8" height="40" rx="2" fill="#8B4513"/>
+            <ellipse cx="42" cy="42" rx="4" ry="6" fill="rgba(255,255,255,0.5)"/>
           </svg>
         </div>
-        <span class="produto-tag">Premium</span>
-        <h3>Picolés ao Leite</h3>
-        <p>Chocolate, leite ninho, doce de leite, maracujá ao leite. Ticket médio mais alto.</p>
+        <span class="produto-tag">Ao leite</span>
+        <h3>Extra Cremoso</h3>
+        <p>Picolé ao leite tradicional na forma redonda. Cremoso de verdade, gira bem em todo PDV.</p>
+        <div class="produto-sabores">
+          <strong>Sabores</strong>
+          Castanha, flocos, tapioca, chocolate, morango, cajá, milho verde, leite condensado
+        </div>
       </div>
 
+      <!-- 3. PINTA LÍNGUA -->
       <div class="produto-card pc-3">
         <div class="produto-visual">
           <svg viewBox="0 0 100 140" xmlns="http://www.w3.org/2000/svg">
-            <path d="M30 30 Q50 10 70 30 L70 90 Q50 110 30 90 Z" fill="#FF9800"/>
-            <path d="M35 35 Q50 25 65 35" fill="none" stroke="#FFD84A" stroke-width="4"/>
-          </svg>
-        </div>
-        <span class="produto-tag">Família</span>
-        <h3>Potes 2L</h3>
-        <p>Sorvete em pote para levar pra casa. Gira em datas, fim de semana e feriado.</p>
-      </div>
-
-      <div class="produto-card pc-4">
-        <div class="produto-visual">
-          <svg viewBox="0 0 100 140" xmlns="http://www.w3.org/2000/svg">
-            <rect x="25" y="10" width="50" height="90" rx="8" fill="#5D3A1A"/>
-            <rect x="30" y="15" width="40" height="15" fill="#FFD84A"/>
-            <text x="50" y="27" text-anchor="middle" fill="#5D3A1A" font-size="10" font-weight="bold" font-family="Arial">BOM</text>
+            <rect x="28" y="12" width="44" height="88" rx="22" fill="#7DD3C0"/>
+            <rect x="33" y="20" width="6" height="20" rx="3" fill="rgba(255,255,255,0.5)"/>
             <rect x="46" y="100" width="8" height="35" rx="2" fill="#8B4513"/>
           </svg>
         </div>
         <span class="produto-tag">Infantil</span>
-        <h3>Linha Personagens</h3>
-        <p>Picolés divertidos que atraem criança e família pro balcão. Compra por impulso garantida.</p>
+        <h3>Pinta Língua</h3>
+        <p>Picolé zero lactose de água, açúcar e corantes. A criançada ama — vende rápido na escola e no bairro.</p>
+        <div class="produto-sabores">
+          <strong>Sabores</strong>
+          Morango, blue ice, chiclete, uva
+        </div>
       </div>
+
+      <!-- 4. SUNDAE -->
+      <div class="produto-card pc-4">
+        <div class="produto-visual">
+          <svg viewBox="0 0 100 140" xmlns="http://www.w3.org/2000/svg">
+            <path d="M30 50 L70 50 L65 110 L35 110 Z" fill="#FFE4B5"/>
+            <ellipse cx="50" cy="50" rx="22" ry="14" fill="#FFB3BF"/>
+            <path d="M40 35 Q50 20 60 35" fill="#8B4513"/>
+            <circle cx="50" cy="38" r="4" fill="#5D3A1A"/>
+          </svg>
+        </div>
+        <span class="produto-tag">Pote 175ml</span>
+        <h3>Sundae</h3>
+        <p>Pote de 175ml com sorvete, cobertura e castanha em cima. Ticket alto, perfeito pra quem quer um agrado.</p>
+        <div class="produto-sabores">
+          <strong>Sabores</strong>
+          Chocolate, morango, chocolate trufado
+        </div>
+      </div>
+
+      <!-- 5. POTE 500ML -->
+      <div class="produto-card pc-5">
+        <div class="produto-visual">
+          <svg viewBox="0 0 100 140" xmlns="http://www.w3.org/2000/svg">
+            <path d="M22 40 L78 40 L72 110 L28 110 Z" fill="#FFB3BF"/>
+            <ellipse cx="50" cy="40" rx="28" ry="6" fill="#FF5470"/>
+            <text x="50" y="80" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold" font-family="Arial">500ml</text>
+          </svg>
+        </div>
+        <span class="produto-tag">Família</span>
+        <h3>Pote 500ml</h3>
+        <p>Sorvete tradicional pra levar pra casa. Gira em fim de semana, feriado e datas em família.</p>
+        <div class="produto-sabores">
+          <strong>Sabores</strong>
+          Flocos, chocolate, morango, creme, menta com chocolate, arco-íris, napolitano
+        </div>
+      </div>
+
+      <!-- 6. CASCÃO -->
+      <div class="produto-card pc-6">
+        <div class="produto-visual">
+          <svg viewBox="0 0 100 140" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="50" cy="40" rx="22" ry="14" fill="#FFE4B5"/>
+            <path d="M28 40 L72 40 L50 115 Z" fill="#D4A574"/>
+            <line x1="35" y1="55" x2="55" y2="50" stroke="#8B4513" stroke-width="1.5"/>
+            <line x1="35" y1="70" x2="55" y2="65" stroke="#8B4513" stroke-width="1.5"/>
+            <line x1="38" y1="85" x2="55" y2="80" stroke="#8B4513" stroke-width="1.5"/>
+            <circle cx="42" cy="32" r="3" fill="#5D3A1A"/>
+            <circle cx="55" cy="30" r="3" fill="#5D3A1A"/>
+          </svg>
+        </div>
+        <span class="produto-tag">Cone pronto</span>
+        <h3>Cascão</h3>
+        <p>Sorvete no cone, já embalado, com cobertura por dentro e topping. Pronto pro cliente abrir e comer.</p>
+        <div class="produto-sabores">
+          <strong>Sabores</strong>
+          Sensação, chocolate-chocolate, leitinho trufado
+        </div>
+      </div>
+
+      <!-- 7. AÇAÍ COM BANANA 500ML -->
+      <div class="produto-card pc-7">
+        <div class="produto-visual">
+          <svg viewBox="0 0 100 140" xmlns="http://www.w3.org/2000/svg">
+            <path d="M22 40 L78 40 L72 110 L28 110 Z" fill="#6A4C93"/>
+            <ellipse cx="50" cy="40" rx="28" ry="6" fill="#4A2C73"/>
+            <text x="50" y="78" text-anchor="middle" fill="#FFD84A" font-size="11" font-weight="bold" font-family="Arial">AÇAÍ</text>
+            <text x="50" y="92" text-anchor="middle" fill="#fff" font-size="9" font-family="Arial">+ banana</text>
+          </svg>
+        </div>
+        <span class="produto-tag">Pote 500ml</span>
+        <h3>Açaí com Banana</h3>
+        <p>Creme de açaí com sorvete de banana no pote de 500ml. Perfeito pra loja de açaí e mercearia que quer diferenciar.</p>
+        <div class="produto-sabores">
+          <strong>Sabor único</strong>
+          Açaí com banana
+        </div>
+      </div>
+
+      <!-- 8. AÇAÍ CARAMELIZADO -->
+      <div class="produto-card pc-8">
+        <div class="produto-visual">
+          <svg viewBox="0 0 100 140" xmlns="http://www.w3.org/2000/svg">
+            <path d="M30 50 L70 50 L65 110 L35 110 Z" fill="#E6BE8A"/>
+            <ellipse cx="50" cy="50" rx="22" ry="14" fill="#6A4C93"/>
+            <path d="M38 50 Q50 38 62 50 Q55 45 50 48 Q45 45 38 50" fill="#D4A574"/>
+            <circle cx="50" cy="42" r="3" fill="#8B4513"/>
+          </svg>
+        </div>
+        <span class="produto-tag">Pote sundae</span>
+        <h3>Açaí Caramelizado</h3>
+        <p>Creme de açaí com base de leite condensado caramelizada, servido no pote de sundae. Ticket alto e cliente fiel.</p>
+        <div class="produto-sabores">
+          <strong>Sabor único</strong>
+          Açaí caramelizado
+        </div>
+      </div>
+
+      <!-- 9. ZITINHO -->
+      <div class="produto-card pc-9">
+        <div class="produto-visual">
+          <svg viewBox="0 0 100 140" xmlns="http://www.w3.org/2000/svg">
+            <path d="M35 20 L65 20 L70 110 Q50 120 30 110 Z" fill="#FFB3BF"/>
+            <path d="M35 20 L65 20 L63 30 L37 30 Z" fill="#FF5470"/>
+            <text x="50" y="70" text-anchor="middle" fill="#fff" font-size="11" font-weight="bold" font-family="Arial">Zitinho</text>
+          </svg>
+        </div>
+        <span class="produto-tag">Saquinho</span>
+        <h3>Zitinho</h3>
+        <p>Estilo sorvete de iogurte (mas não é!), no saquinho. Conhecido como "marujinho" — preço acessível e venda alta.</p>
+        <div class="produto-sabores">
+          <strong>Sabores</strong>
+          Chocolate, morango, blue ice, leite condensado, maracujá, graviola, chiclete, cajá
+        </div>
+      </div>
+
     </div>
 
     <div style="text-align:center; margin-top: 50px;">
-      <a href="https://wa.me/5585999999999?text=Quero%20a%20tabela%20de%20pre%C3%A7os%20completa" target="_blank" class="btn btn-primary">
-        📋 Pedir tabela de preços completa
+      <a href="https://wa.me/5585991447566?text=Ol%C3%A1!%20Quero%20fazer%20um%20or%C3%A7amento%20de%20produtos%20Bomilak" target="_blank" class="btn btn-primary">
+        💬 Fazer um orçamento
       </a>
     </div>
   </div>
@@ -1175,37 +1321,37 @@
     <div>
       <span class="eyebrow">Nossa história</span>
       <h2 class="section-title">Feito de <em>gente do Ceará</em> pra gente que vende na ponta.</h2>
-      <p class="big">Começamos pequenininho, em 1995, fazendo picolé de fruta pra vender no carrinho do bairro. 30 anos depois, somos uma das maiores fábricas de picolés do Norte/Nordeste — mas não esquecemos quem nos fez crescer: o dono da mercearia, o cara do açaí, a tia da lanchonete.</p>
-      <p class="big">Por isso a gente ainda atende no WhatsApp, entrega em fardo pequeno e não aperta a sua margem.</p>
+      <p class="big">Somos uma indústria de sorvetes com mais de 20 anos de mercado, desde 1998. Começamos pequenininho, fazendo picolé pra atender o bairro, e hoje somos uma das fábricas que mais cresce no Norte/Nordeste — mas não esquecemos quem nos fez crescer: o dono da mercearia, o cara do açaí, a tia da lanchonete.</p>
+      <p class="big">Por isso a gente ainda atende no WhatsApp, aceita pedido pequeno e não aperta a sua margem.</p>
     </div>
 
     <div class="timeline">
       <div class="tl-item">
-        <div class="tl-year">'95</div>
+        <div class="tl-year">'98</div>
         <div class="tl-content">
           <strong>Onde tudo começou</strong>
-          <span>Uma freezer, uma receita de família e a vontade de fazer o melhor picolé do bairro.</span>
+          <span>Uma receita de família, muito trabalho e a vontade de fazer o melhor picolé do bairro.</span>
         </div>
       </div>
       <div class="tl-item">
         <div class="tl-year">'08</div>
         <div class="tl-content">
-          <strong>Primeira fábrica própria</strong>
-          <span>Saímos do fundo de quintal pra uma planta industrial com capacidade pra atender toda a RMF.</span>
+          <strong>De artesanal pra industrial</strong>
+          <span>Saímos da produção artesanal pra uma planta industrial, com capacidade de atender toda a RMF.</span>
         </div>
       </div>
       <div class="tl-item">
         <div class="tl-year">'18</div>
         <div class="tl-content">
-          <strong>1.000 pontos de venda</strong>
-          <span>Chegamos na marca que mais nos orgulha: mais de mil pequenos revendedores confiando na gente.</span>
+          <strong>Centenas de pontos de venda</strong>
+          <span>Crescemos junto com nossos revendedores, expandindo a linha e mantendo a qualidade do primeiro picolé.</span>
         </div>
       </div>
       <div class="tl-item">
         <div class="tl-year">Hoje</div>
         <div class="tl-content">
-          <strong>+1.300 PDVs e crescendo</strong>
-          <span>Fábrica própria, frota própria, +100 SKUs e uma missão só: fazer você vender mais.</span>
+          <strong>+600 PDVs e crescendo</strong>
+          <span>Fábrica própria, frota própria, +30 sabores e uma missão só: fazer você vender mais.</span>
         </div>
       </div>
     </div>
@@ -1223,7 +1369,7 @@
     <div class="pillars-grid">
       <div class="pillar">
         <div class="pillar-icon">📦</div>
-        <h3>Fardo pequeno, congelador feliz</h3>
+        <h3>Pedido pequeno, congelador feliz</h3>
         <p>Nada de caixa gigante entupindo seu freezer. A gente entrega na quantidade que cabe na sua realidade, do jeito que gira.</p>
       </div>
       <div class="pillar">
@@ -1252,27 +1398,23 @@
     <div class="faq-list">
       <details class="faq-item" open>
         <summary>Qual o pedido mínimo pra começar a revender?</summary>
-        <div class="answer">Trabalhamos com fardos a partir de quantidades pequenas, pensadas pra quem tá começando ou tem congelador apertado. Sem pedido mínimo absurdo — o objetivo é você girar o estoque, não encalhar.</div>
+        <div class="answer">Trabalhamos com pedido pequeno, pensado pra quem tá começando ou tem congelador apertado. Sem pedido mínimo absurdo — o objetivo é você girar o estoque, não encalhar.</div>
       </details>
       <details class="faq-item">
         <summary>Vocês entregam em qual região?</summary>
-        <div class="answer">Atendemos toda a Região Metropolitana de Fortaleza (RMF) com frota própria. Para cidades do interior do Ceará e estados vizinhos, temos esquemas de entrega semanal — chama no zap que a gente confirma sua rota.</div>
-      </details>
-      <details class="faq-item">
-        <summary>Tem crédito pra quem tá começando?</summary>
-        <div class="answer">Temos. Após as primeiras compras à vista, avaliamos crédito com prazos compatíveis com o giro do seu negócio. A ideia é ser parceiro, não sufocador.</div>
+        <div class="answer">Atendemos toda a Região Metropolitana de Fortaleza (RMF) com frota própria. Chama no zap que a gente confirma sua rota e o dia da entrega.</div>
       </details>
       <details class="faq-item">
         <summary>Quantos sabores e tipos vocês têm?</summary>
-        <div class="answer">Hoje são mais de 100 variações entre picolés de fruta, picolés ao leite, potes de 2L, sorvetes em massa e linha infantil com personagens. Te mandamos o catálogo completo pelo WhatsApp.</div>
+        <div class="answer">Hoje são mais de 30 variações distribuídas em 9 linhas: <strong>Megalak</strong> (picolés com cobertura), <strong>Extra Cremoso</strong> (picolés ao leite), <strong>Pinta Língua</strong> (infantil zero lactose), <strong>Sundae</strong>, <strong>Pote 500ml</strong>, <strong>Cascão</strong> (cone pronto), <strong>Açaí com Banana</strong>, <strong>Açaí Caramelizado</strong> e <strong>Zitinho</strong> (o famoso marujinho). Te mandamos o catálogo completo pelo WhatsApp.</div>
       </details>
       <details class="faq-item">
         <summary>E se um produto vier com defeito ou vencer na prateleira?</summary>
-        <div class="answer">Temos política de troca pra produtos com avaria no transporte e acompanhamos o giro dos SKUs pra evitar que algo fique parado. Se acontecer, resolve direto com o vendedor, sem burocracia.</div>
+        <div class="answer">Temos política de troca pra produtos com avaria no transporte e acompanhamos o giro dos produtos pra evitar que algo fique parado. Se acontecer, resolve direto com o vendedor, sem burocracia.</div>
       </details>
       <details class="faq-item">
-        <summary>Como faço pra receber a tabela de preços?</summary>
-        <div class="answer">É só clicar no botão de WhatsApp aqui do site ou mandar mensagem dizendo "quero a tabela". Nosso time envia em PDF com todos os SKUs, fardos e condições.</div>
+        <summary>Como faço pra receber um orçamento?</summary>
+        <div class="answer">É só clicar no botão de WhatsApp aqui do site ou mandar mensagem dizendo "quero um orçamento". Como trabalhamos com tabelas diferenciadas por perfil de cliente, nosso vendedor monta a melhor condição pra você.</div>
       </details>
     </div>
   </div>
@@ -1301,7 +1443,7 @@
 
       <div class="review">
         <div class="stars">★★★★★</div>
-        <p class="review-text">"O fardo pequeno salvou meu negócio. Eu não tinha espaço no freezer pra caixa grande. Com a Bomilak, dá pra variar o sabor sem encalhar."</p>
+        <p class="review-text">"O pedido pequeno salvou meu negócio. Eu não tinha espaço no freezer pra caixa grande. Com a Bomilak, dá pra variar o sabor sem encalhar."</p>
         <div class="review-author">
           <div class="avatar">DA</div>
           <div>
@@ -1361,7 +1503,7 @@
       <div class="phone-screen">
         <div class="phone-post">Sabor que derrete na boca 🍦</div>
         <div class="phone-post">#BomilakNaPraia</div>
-        <div class="phone-post">+100 sabores pra escolher ✨</div>
+        <div class="phone-post">+30 sabores pra escolher ✨</div>
       </div>
     </div>
   </div>
@@ -1371,8 +1513,8 @@
 <section class="cta-final">
   <div class="container">
     <h2>Bora <em>fazer caixa</em> com picolé?</h2>
-    <p>Chama no WhatsApp agora. O vendedor te responde em minutos, manda a tabela e agenda sua primeira entrega. Sem compromisso.</p>
-    <a href="https://wa.me/5585999999999?text=Ol%C3%A1!%20Quero%20revender%20Bomilak%20na%20minha%20loja" target="_blank" class="btn btn-primary">
+    <p>Chama no WhatsApp agora. O vendedor te responde em minutos, monta seu orçamento e agenda sua primeira entrega. Sem compromisso.</p>
+    <a href="https://wa.me/5585991447566?text=Ol%C3%A1!%20Quero%20revender%20Bomilak%20na%20minha%20loja" target="_blank" class="btn btn-primary">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413"/></svg>
       Falar com vendedor no WhatsApp
     </a>
@@ -1385,7 +1527,7 @@
     <div class="footer-grid">
       <div>
         <div class="logo">Bomilak</div>
-        <p class="tagline">Indústria cearense de picolés e sorvetes, fabricando alegria pra mais de 1.300 pontos de venda desde 1995.</p>
+        <p class="tagline">Indústria cearense de picolés e sorvetes, fabricando alegria pra mais de 600 pontos de venda desde 1998.</p>
       </div>
 
       <div class="footer-col">
@@ -1398,9 +1540,9 @@
 
       <div class="footer-col">
         <h4>Fale com a gente</h4>
-        <a href="https://wa.me/5585999999999" target="_blank">WhatsApp Comercial</a>
+        <a href="https://wa.me/5585991447566" target="_blank">WhatsApp Comercial</a>
         <a href="mailto:contato@bomilak.com.br">contato@bomilak.com.br</a>
-        <a href="tel:+558532020000">(85) 3202-0000</a>
+        <a href="tel:+5585991447566">(85) 9144-7566</a>
       </div>
 
       <div class="footer-col">
@@ -1420,7 +1562,7 @@
 </footer>
 
 <!-- WHATSAPP FAB -->
-<a href="https://wa.me/5585999999999?text=Ol%C3%A1!%20Quero%20revender%20Bomilak" target="_blank" class="wa-fab" aria-label="Falar no WhatsApp">
+<a href="https://wa.me/5585991447566?text=Ol%C3%A1!%20Quero%20revender%20Bomilak" target="_blank" class="wa-fab" aria-label="Falar no WhatsApp">
   <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413"/></svg>
   <span class="wa-text">Fale agora</span>
 </a>
