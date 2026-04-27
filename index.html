@@ -416,8 +416,340 @@
     max-width: 640px;
   }
 
-  /* ---------- PRODUTOS ---------- */
-  .produtos { background: var(--cream); }
+  /* ====================================================== */
+  /* ============ FREEZER (RENDIMENTO) — ANIMADO ============ */
+  /* ====================================================== */
+  .freezer {
+    background: var(--cream);
+    overflow: hidden;
+    position: relative;
+  }
+  /* Decorações flutuantes de fundo */
+  .freezer::before {
+    content: "";
+    position: absolute;
+    top: 10%;
+    left: -150px;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, var(--butter-soft) 0%, transparent 70%);
+    opacity: 0.6;
+    border-radius: 50%;
+    z-index: 0;
+    animation: floatBlob 12s ease-in-out infinite;
+  }
+  .freezer::after {
+    content: "";
+    position: absolute;
+    bottom: 5%;
+    right: -100px;
+    width: 260px;
+    height: 260px;
+    background: radial-gradient(circle, var(--pink) 0%, transparent 70%);
+    opacity: 0.4;
+    border-radius: 50%;
+    z-index: 0;
+    animation: floatBlob 15s ease-in-out infinite reverse;
+  }
+  @keyframes floatBlob {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(30px, -20px) scale(1.1); }
+    66% { transform: translate(-20px, 30px) scale(0.95); }
+  }
+
+  .freezer .container { position: relative; z-index: 1; }
+
+  .freezer-grid {
+    display: grid;
+    grid-template-columns: 1.05fr 1fr;
+    gap: 70px;
+    align-items: center;
+  }
+
+  /* GALERIA com animações */
+  .freezer-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1.4fr 1fr;
+    gap: 14px;
+    height: 560px;
+    perspective: 1200px;
+  }
+  .freezer-photo {
+    border-radius: var(--radius-sm);
+    background-size: cover;
+    background-position: center;
+    border: 2px solid var(--ink);
+    overflow: hidden;
+    position: relative;
+    display: grid;
+    place-items: center;
+    color: rgba(255,255,255,0.85);
+    font-family: var(--display);
+    font-style: italic;
+    font-weight: 700;
+    font-size: 15px;
+    text-align: center;
+    padding: 16px;
+    will-change: transform;
+    /* Estado inicial para animação de entrada */
+    opacity: 0;
+    transform: translateY(60px) scale(0.85) rotate(-3deg);
+    transition: opacity 1s cubic-bezier(0.2, 0.9, 0.3, 1.2),
+                transform 1s cubic-bezier(0.2, 0.9, 0.3, 1.2),
+                box-shadow .4s ease;
+  }
+  .freezer-photo.in-view {
+    opacity: 1;
+    transform: translateY(0) scale(1) rotate(0);
+  }
+  /* Stagger - cada foto entra com um pequeno delay */
+  .freezer-photo.fp-1.in-view { transition-delay: 0s; }
+  .freezer-photo.fp-2.in-view { transition-delay: 0.15s; }
+  .freezer-photo.fp-3.in-view { transition-delay: 0.3s; }
+  .freezer-photo.fp-4.in-view { transition-delay: 0.45s; }
+
+  /* Hover mais expressivo */
+  .freezer-photo:hover {
+    transform: translateY(-12px) scale(1.03) rotate(1deg) !important;
+    box-shadow: 12px 12px 0 0 var(--ink);
+    z-index: 5;
+  }
+  .freezer-photo::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(0,0,0,0.45) 100%);
+    transition: background .4s ease;
+  }
+  .freezer-photo:hover::after {
+    background: linear-gradient(180deg, rgba(0,0,0,0) 20%, rgba(0,0,0,0.65) 100%);
+  }
+  .freezer-photo span {
+    position: relative;
+    z-index: 2;
+    align-self: end;
+    padding: 12px;
+    font-size: 13px;
+    background: rgba(0,0,0,0.55);
+    border-radius: 8px;
+    backdrop-filter: blur(4px);
+    transform: translateY(0);
+    transition: transform .4s ease;
+  }
+  .freezer-photo:hover span {
+    transform: translateY(-4px);
+  }
+
+  /* Animação flutuante contínua suave (depois que entra) */
+  .freezer-photo.in-view.fp-1 { animation: floatGently 6s ease-in-out infinite 1s; }
+  .freezer-photo.in-view.fp-2 { animation: floatGently 7s ease-in-out infinite 1.3s; }
+  .freezer-photo.in-view.fp-3 { animation: floatGently 6.5s ease-in-out infinite 1.6s; }
+  .freezer-photo.in-view.fp-4 { animation: floatGently 7.5s ease-in-out infinite 1.9s; }
+  .freezer-photo.in-view:hover { animation: none; }
+  @keyframes floatGently {
+    0%, 100% { transform: translateY(0) rotate(0); }
+    50% { transform: translateY(-8px) rotate(0.5deg); }
+  }
+
+  .fp-1 {
+    grid-column: 1; grid-row: 1 / 3;
+    background-image: linear-gradient(135deg, #FFD84A 0%, #FF9800 50%, #FF5470 100%);
+  }
+  .fp-2 {
+    grid-column: 2 / 4; grid-row: 1;
+    background-image: linear-gradient(135deg, #FFB3BF 0%, #FF5470 100%);
+  }
+  .fp-3 {
+    grid-column: 2; grid-row: 2;
+    background-image: linear-gradient(135deg, #BEE8D9 0%, #6A4C93 100%);
+  }
+  .fp-4 {
+    grid-column: 3; grid-row: 2;
+    background-image: linear-gradient(135deg, #5D3A1A 0%, #1A0B0D 100%);
+  }
+
+  /* CONTEÚDO de texto com animações */
+  .freezer-content h2 {
+    margin-bottom: 24px;
+    border-top: 4px solid var(--butter);
+    padding-top: 28px;
+    /* Animação de entrada */
+    opacity: 0;
+    transform: translateX(-40px);
+    transition: opacity .8s ease, transform .8s cubic-bezier(0.2, 0.9, 0.3, 1.1);
+  }
+  .freezer-content.in-view h2 {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  .freezer-content > p {
+    font-size: 18px;
+    color: #3A2A2D;
+    line-height: 1.6;
+    margin-bottom: 32px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity .8s ease .15s, transform .8s ease .15s;
+  }
+  .freezer-content.in-view > p {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .freezer-chega {
+    font-family: var(--display);
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--red);
+    margin-bottom: 18px;
+    letter-spacing: -0.01em;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity .8s ease .3s, transform .8s ease .3s;
+  }
+  .freezer-content.in-view .freezer-chega {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .freezer-pains {
+    list-style: none;
+    margin-bottom: 32px;
+  }
+  .freezer-pains li {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 14px 0;
+    border-bottom: 1px dashed rgba(26,11,13,0.15);
+    font-size: 16px;
+    color: #2A1A1D;
+    line-height: 1.5;
+    /* Animação de entrada em cascata */
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: opacity .7s cubic-bezier(0.2, 0.9, 0.3, 1.1),
+                transform .7s cubic-bezier(0.2, 0.9, 0.3, 1.1);
+  }
+  .freezer-pains li:last-child { border-bottom: none; }
+  .freezer-content.in-view .freezer-pains li:nth-child(1) {
+    opacity: 1; transform: translateX(0); transition-delay: 0.45s;
+  }
+  .freezer-content.in-view .freezer-pains li:nth-child(2) {
+    opacity: 1; transform: translateX(0); transition-delay: 0.6s;
+  }
+  .freezer-content.in-view .freezer-pains li:nth-child(3) {
+    opacity: 1; transform: translateX(0); transition-delay: 0.75s;
+  }
+  .freezer-content.in-view .freezer-pains li:nth-child(4) {
+    opacity: 1; transform: translateX(0); transition-delay: 0.9s;
+  }
+  /* Hover sutil nos itens */
+  .freezer-pains li {
+    transition: opacity .7s cubic-bezier(0.2, 0.9, 0.3, 1.1),
+                transform .7s cubic-bezier(0.2, 0.9, 0.3, 1.1),
+                padding-left .3s ease,
+                color .3s ease;
+  }
+  .freezer-pains li:hover {
+    padding-left: 8px;
+    color: var(--red);
+  }
+  .freezer-pains .check {
+    flex-shrink: 0;
+    width: 26px; height: 26px;
+    background: var(--red);
+    color: white;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font-weight: 800;
+    font-size: 14px;
+    margin-top: 2px;
+    transition: transform .3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  .freezer-pains li:hover .check {
+    transform: scale(1.2) rotate(15deg);
+  }
+
+  .freezer-cta-line {
+    font-family: var(--display);
+    font-size: 22px;
+    font-weight: 700;
+    font-style: italic;
+    color: var(--ink);
+    margin-bottom: 28px;
+    line-height: 1.3;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity .8s ease 1.05s, transform .8s ease 1.05s;
+  }
+  .freezer-content.in-view .freezer-cta-line {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .freezer-cta-line strong {
+    background: var(--butter);
+    padding: 2px 10px;
+    border-radius: 6px;
+    font-style: normal;
+    font-weight: 800;
+    display: inline-block;
+    animation: highlightPulse 3s ease-in-out infinite 2s;
+  }
+  @keyframes highlightPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.04) rotate(-1deg); }
+  }
+  .freezer-content .btn-primary {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity .8s ease 1.2s,
+                transform .8s ease 1.2s,
+                box-shadow .2s ease;
+  }
+  .freezer-content.in-view .btn-primary {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ====================================================== */
+  /* ============ PRODUTOS — ANIMADO ============ */
+  /* ====================================================== */
+  .produtos {
+    background: var(--cream);
+    overflow: hidden;
+    position: relative;
+  }
+  /* Blob decorativo */
+  .produtos::before {
+    content: "";
+    position: absolute;
+    top: 20%;
+    right: -200px;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, var(--mint) 0%, transparent 70%);
+    opacity: 0.35;
+    border-radius: 50%;
+    z-index: 0;
+    animation: floatBlob 18s ease-in-out infinite;
+  }
+  .produtos::after {
+    content: "";
+    position: absolute;
+    bottom: 10%;
+    left: -150px;
+    width: 320px;
+    height: 320px;
+    background: radial-gradient(circle, var(--butter-soft) 0%, transparent 70%);
+    opacity: 0.5;
+    border-radius: 50%;
+    z-index: 0;
+    animation: floatBlob 14s ease-in-out infinite reverse;
+  }
+  .produtos .container { position: relative; z-index: 1; }
+
   .produtos-header {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -425,26 +757,80 @@
     align-items: end;
     margin-bottom: 60px;
   }
+  .produtos-header > div,
+  .produtos-header > p {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity .8s ease, transform .8s ease;
+  }
+  .produtos-header.in-view > div {
+    opacity: 1; transform: translateY(0);
+  }
+  .produtos-header.in-view > p {
+    opacity: 1; transform: translateY(0);
+    transition-delay: 0.15s;
+  }
+
   .produtos-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 22px;
+    perspective: 1500px;
   }
+
   .produto-card {
     background: var(--cream);
     border: 2px solid var(--ink);
     border-radius: var(--radius);
     padding: 26px;
-    transition: transform .3s, box-shadow .3s;
     position: relative;
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    will-change: transform;
+    /* Animação de entrada */
+    opacity: 0;
+    transform: translateY(80px) scale(0.9) rotate(-2deg);
+    transition: opacity .9s cubic-bezier(0.2, 0.9, 0.3, 1.1),
+                transform .9s cubic-bezier(0.2, 0.9, 0.3, 1.1),
+                box-shadow .35s ease,
+                border-color .35s ease;
   }
+  /* Stagger por linha de 3 cards */
+  .produto-card.in-view { opacity: 1; transform: translateY(0) scale(1) rotate(0); }
+  .produto-card:nth-child(3n+1).in-view { transition-delay: 0s; }
+  .produto-card:nth-child(3n+2).in-view { transition-delay: 0.1s; }
+  .produto-card:nth-child(3n+3).in-view { transition-delay: 0.2s; }
+
+  /* Hover 3D imersivo */
   .produto-card:hover {
-    transform: translateY(-6px);
-    box-shadow: var(--shadow-hard);
+    transform: translateY(-10px) scale(1.02) !important;
+    box-shadow: 12px 12px 0 0 var(--ink);
+    border-color: var(--red);
+    z-index: 4;
   }
+  /* Brilho que passa no card no hover */
+  .produto-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      120deg,
+      transparent 30%,
+      rgba(255, 216, 74, 0.18) 50%,
+      transparent 70%
+    );
+    transition: left .8s ease;
+    pointer-events: none;
+    z-index: 1;
+  }
+  .produto-card:hover::before {
+    left: 100%;
+  }
+
   .produto-visual {
     height: 200px;
     border-radius: var(--radius-sm);
@@ -454,22 +840,38 @@
     position: relative;
     overflow: hidden;
     border: 1.5px dashed rgba(26,11,13,0.25);
+    transition: transform .5s cubic-bezier(0.34, 1.4, 0.64, 1);
+  }
+  .produto-card:hover .produto-visual {
+    transform: scale(1.04) rotate(-1deg);
   }
   .produto-visual img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     border-radius: calc(var(--radius-sm) - 2px);
+    transition: transform .6s ease;
+  }
+  .produto-card:hover .produto-visual img {
+    transform: scale(1.08);
   }
   .produto-placeholder {
     text-align: center;
     color: rgba(26,11,13,0.55);
     padding: 14px;
+    transition: transform .4s ease;
+  }
+  .produto-card:hover .produto-placeholder {
+    transform: scale(1.05);
   }
   .produto-placeholder .icon {
     width: 38px; height: 38px;
     margin: 0 auto 8px;
     opacity: 0.5;
+    transition: transform .5s ease;
+  }
+  .produto-card:hover .produto-placeholder .icon {
+    transform: rotate(8deg);
   }
   .produto-placeholder .text {
     font-size: 11px;
@@ -504,6 +906,13 @@
     text-transform: uppercase;
     letter-spacing: 0.08em;
     margin-bottom: 10px;
+    transition: background .3s ease, transform .3s ease;
+    position: relative;
+    z-index: 2;
+  }
+  .produto-card:hover .produto-tag {
+    background: var(--red);
+    transform: translateY(-2px);
   }
   .produto-card h3 {
     font-family: var(--display);
@@ -511,11 +920,19 @@
     font-weight: 800;
     letter-spacing: -0.02em;
     margin-bottom: 8px;
+    transition: color .3s ease, transform .3s ease;
+    position: relative;
+    z-index: 2;
+  }
+  .produto-card:hover h3 {
+    color: var(--red);
   }
   .produto-card p {
     font-size: 14px;
     color: #5A474A;
     margin-bottom: 14px;
+    position: relative;
+    z-index: 2;
   }
   .produto-sabores {
     margin-top: auto;
@@ -524,6 +941,12 @@
     font-size: 12.5px;
     color: #5A474A;
     line-height: 1.5;
+    position: relative;
+    z-index: 2;
+    transition: border-color .3s ease;
+  }
+  .produto-card:hover .produto-sabores {
+    border-top-color: var(--red);
   }
   .produto-sabores strong {
     display: block;
@@ -535,134 +958,20 @@
     margin-bottom: 6px;
   }
 
-  /* ---------- FREEZER RENDIMENTO ---------- */
-  .freezer { background: var(--cream); }
-  .freezer-grid {
-    display: grid;
-    grid-template-columns: 1.05fr 1fr;
-    gap: 70px;
-    align-items: center;
-  }
-  .freezer-gallery {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 1.4fr 1fr;
-    gap: 14px;
-    height: 560px;
-  }
-  .freezer-photo {
-    border-radius: var(--radius-sm);
-    background-size: cover;
-    background-position: center;
-    border: 2px solid var(--ink);
-    overflow: hidden;
-    position: relative;
-    display: grid;
-    place-items: center;
-    color: rgba(255,255,255,0.85);
-    font-family: var(--display);
-    font-style: italic;
-    font-weight: 700;
-    font-size: 15px;
+  /* Botão CTA dos produtos com animação */
+  .produtos-cta-wrap {
     text-align: center;
-    padding: 16px;
-    transition: transform .3s;
+    margin-top: 50px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity .8s ease, transform .8s ease;
   }
-  .freezer-photo:hover { transform: translateY(-4px); }
-  .freezer-photo::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(0,0,0,0.45) 100%);
+  .produtos-cta-wrap.in-view {
+    opacity: 1;
+    transform: translateY(0);
   }
-  .freezer-photo span {
-    position: relative;
-    z-index: 2;
-    align-self: end;
-    padding: 12px;
-    font-size: 13px;
-    background: rgba(0,0,0,0.55);
-    border-radius: 8px;
-    backdrop-filter: blur(4px);
-  }
-  .fp-1 {
-    grid-column: 1; grid-row: 1 / 3;
-    background-image: linear-gradient(135deg, #FFD84A 0%, #FF9800 50%, #FF5470 100%);
-  }
-  .fp-2 {
-    grid-column: 2 / 4; grid-row: 1;
-    background-image: linear-gradient(135deg, #FFB3BF 0%, #FF5470 100%);
-  }
-  .fp-3 {
-    grid-column: 2; grid-row: 2;
-    background-image: linear-gradient(135deg, #BEE8D9 0%, #6A4C93 100%);
-  }
-  .fp-4 {
-    grid-column: 3; grid-row: 2;
-    background-image: linear-gradient(135deg, #5D3A1A 0%, #1A0B0D 100%);
-  }
-  .freezer-content h2 {
-    margin-bottom: 24px;
-    border-top: 4px solid var(--butter);
-    padding-top: 28px;
-  }
-  .freezer-content > p {
-    font-size: 18px;
-    color: #3A2A2D;
-    line-height: 1.6;
-    margin-bottom: 32px;
-  }
-  .freezer-chega {
-    font-family: var(--display);
-    font-size: 24px;
-    font-weight: 800;
-    color: var(--red);
-    margin-bottom: 18px;
-    letter-spacing: -0.01em;
-  }
-  .freezer-pains {
-    list-style: none;
-    margin-bottom: 32px;
-  }
-  .freezer-pains li {
-    display: flex;
-    align-items: flex-start;
-    gap: 14px;
-    padding: 14px 0;
-    border-bottom: 1px dashed rgba(26,11,13,0.15);
-    font-size: 16px;
-    color: #2A1A1D;
-    line-height: 1.5;
-  }
-  .freezer-pains li:last-child { border-bottom: none; }
-  .freezer-pains .check {
-    flex-shrink: 0;
-    width: 26px; height: 26px;
-    background: var(--red);
-    color: white;
-    border-radius: 50%;
-    display: grid;
-    place-items: center;
-    font-weight: 800;
-    font-size: 14px;
-    margin-top: 2px;
-  }
-  .freezer-cta-line {
-    font-family: var(--display);
-    font-size: 22px;
-    font-weight: 700;
-    font-style: italic;
-    color: var(--ink);
-    margin-bottom: 28px;
-    line-height: 1.3;
-  }
-  .freezer-cta-line strong {
-    background: var(--butter);
-    padding: 2px 10px;
-    border-radius: 6px;
-    font-style: normal;
-    font-weight: 800;
-  }
+
+  /* ---------- HISTÓRIA ---------- */
   .historia {
     background: var(--red);
     color: var(--cream);
@@ -785,7 +1094,6 @@
     line-height: 1.55;
   }
 
-  /* Card destaque - estilo invertido (vermelho com texto creme) */
   .pillar.featured {
     background: var(--red);
     color: var(--cream);
@@ -799,7 +1107,6 @@
     color: var(--red);
   }
 
-  /* Card destaque amarelo */
   .pillar.highlight {
     background: var(--butter);
     border-color: var(--ink);
@@ -1177,6 +1484,8 @@
     }
     .freezer-gallery { height: 420px; }
     .produtos-grid { grid-template-columns: repeat(2, 1fr); }
+    .produto-card:nth-child(2n+1).in-view { transition-delay: 0s; }
+    .produto-card:nth-child(2n+2).in-view { transition-delay: 0.1s; }
     .pillars-grid { grid-template-columns: 1fr; }
     .reviews-grid { grid-template-columns: 1fr; }
     .footer-grid { grid-template-columns: 1fr 1fr; }
@@ -1188,6 +1497,7 @@
 
   @media (max-width: 600px) {
     .produtos-grid { grid-template-columns: 1fr; }
+    .produto-card.in-view { transition-delay: 0s !important; }
     .hero-stats { flex-wrap: wrap; gap: 24px; }
     .social-stats { grid-template-columns: 1fr; }
     .footer-grid { grid-template-columns: 1fr; gap: 40px; }
@@ -1197,13 +1507,26 @@
     .hero { padding: 50px 0 80px; }
   }
 
-  /* ---------- SCROLL REVEAL ---------- */
+  /* ---------- SCROLL REVEAL GENÉRICO (outras seções) ---------- */
   .reveal {
     opacity: 0;
     transform: translateY(30px);
     transition: opacity .8s ease, transform .8s ease;
   }
   .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* Respeitar preferência do usuário por menos animações */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+    .freezer-photo, .produto-card, .freezer-content > *, .produtos-header > * {
+      opacity: 1 !important;
+      transform: none !important;
+    }
+  }
 </style>
 </head>
 <body>
@@ -1254,7 +1577,6 @@
     </div>
 
     <div class="hero-visual">
-      <!-- Foto principal: substitua o conteúdo abaixo por <img src="sua-foto.jpg" alt="Produtos Bomilak"> e ajuste o CSS .hero-photo para remover gradiente -->
       <div class="hero-photo">
         <div class="hero-photo-content">
           <span class="label">📸 Espaço para sua foto</span>
@@ -1282,12 +1604,11 @@
 <!-- FREEZER RENDIMENTO -->
 <section class="freezer">
   <div class="container freezer-grid">
-    <div class="freezer-gallery">
-      <!-- 4 imagens genéricas/placeholder. Substitua o background-image no CSS pela URL das suas fotos reais -->
-      <div class="freezer-photo fp-1"><span>Foto 1 — Picolés Megalak</span></div>
-      <div class="freezer-photo fp-2"><span>Foto 2 — Mesa de degustação</span></div>
-      <div class="freezer-photo fp-3"><span>Foto 3 — Açaí no pote</span></div>
-      <div class="freezer-photo fp-4"><span>Foto 4 — Sundae</span></div>
+    <div class="freezer-gallery" data-parallax-group>
+      <div class="freezer-photo fp-1" data-parallax-speed="0.08"><span>Foto 1 — Picolés Megalak</span></div>
+      <div class="freezer-photo fp-2" data-parallax-speed="-0.06"><span>Foto 2 — Mesa de degustação</span></div>
+      <div class="freezer-photo fp-3" data-parallax-speed="0.1"><span>Foto 3 — Açaí no pote</span></div>
+      <div class="freezer-photo fp-4" data-parallax-speed="-0.08"><span>Foto 4 — Sundae</span></div>
     </div>
 
     <div class="freezer-content">
@@ -1326,9 +1647,8 @@
     <div class="produtos-grid">
 
       <!-- 1. MEGALAK -->
-      <div class="produto-card pc-1">
+      <div class="produto-card pc-1" data-parallax-speed="0.04">
         <div class="produto-visual">
-          <!-- Substitua pelo: <img src="megalak.jpg" alt="Megalak"> -->
           <div class="produto-placeholder">
             <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
             <div class="text">Foto Megalak</div>
@@ -1345,9 +1665,8 @@
       </div>
 
       <!-- 2. EXTRA CREMOSO -->
-      <div class="produto-card pc-2">
+      <div class="produto-card pc-2" data-parallax-speed="-0.03">
         <div class="produto-visual">
-          <!-- Substitua pelo: <img src="extra-cremoso.jpg" alt="Extra Cremoso"> -->
           <div class="produto-placeholder">
             <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
             <div class="text">Foto Extra Cremoso</div>
@@ -1364,9 +1683,8 @@
       </div>
 
       <!-- 3. PINTA LÍNGUA -->
-      <div class="produto-card pc-3">
+      <div class="produto-card pc-3" data-parallax-speed="0.05">
         <div class="produto-visual">
-          <!-- Substitua pelo: <img src="pinta-lingua.jpg" alt="Pinta Língua"> -->
           <div class="produto-placeholder">
             <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
             <div class="text">Foto Pinta Língua</div>
@@ -1383,9 +1701,8 @@
       </div>
 
       <!-- 4. SUNDAE -->
-      <div class="produto-card pc-4">
+      <div class="produto-card pc-4" data-parallax-speed="-0.04">
         <div class="produto-visual">
-          <!-- Substitua pelo: <img src="sundae.jpg" alt="Sundae"> -->
           <div class="produto-placeholder">
             <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
             <div class="text">Foto Sundae</div>
@@ -1402,9 +1719,8 @@
       </div>
 
       <!-- 5. POTE 500ML -->
-      <div class="produto-card pc-5">
+      <div class="produto-card pc-5" data-parallax-speed="0.04">
         <div class="produto-visual">
-          <!-- Substitua pelo: <img src="pote-500ml.jpg" alt="Pote 500ml"> -->
           <div class="produto-placeholder">
             <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
             <div class="text">Foto Pote 500ml</div>
@@ -1421,9 +1737,8 @@
       </div>
 
       <!-- 6. CASCÃO -->
-      <div class="produto-card pc-6">
+      <div class="produto-card pc-6" data-parallax-speed="-0.03">
         <div class="produto-visual">
-          <!-- Substitua pelo: <img src="cascao.jpg" alt="Cascão"> -->
           <div class="produto-placeholder">
             <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
             <div class="text">Foto Cascão</div>
@@ -1440,9 +1755,8 @@
       </div>
 
       <!-- 7. AÇAÍ COM BANANA 500ML -->
-      <div class="produto-card pc-7">
+      <div class="produto-card pc-7" data-parallax-speed="0.05">
         <div class="produto-visual">
-          <!-- Substitua pelo: <img src="acai-banana.jpg" alt="Açaí com Banana"> -->
           <div class="produto-placeholder">
             <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
             <div class="text">Foto Açaí + Banana</div>
@@ -1459,9 +1773,8 @@
       </div>
 
       <!-- 8. AÇAÍ CARAMELIZADO -->
-      <div class="produto-card pc-8">
+      <div class="produto-card pc-8" data-parallax-speed="-0.04">
         <div class="produto-visual">
-          <!-- Substitua pelo: <img src="acai-caramelizado.jpg" alt="Açaí Caramelizado"> -->
           <div class="produto-placeholder">
             <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
             <div class="text">Foto Açaí Caramelizado</div>
@@ -1478,9 +1791,8 @@
       </div>
 
       <!-- 9. ZITINHO -->
-      <div class="produto-card pc-9">
+      <div class="produto-card pc-9" data-parallax-speed="0.04">
         <div class="produto-visual">
-          <!-- Substitua pelo: <img src="zitinho.jpg" alt="Zitinho"> -->
           <div class="produto-placeholder">
             <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
             <div class="text">Foto Zitinho</div>
@@ -1498,7 +1810,7 @@
 
     </div>
 
-    <div style="text-align:center; margin-top: 50px;">
+    <div class="produtos-cta-wrap">
       <a href="https://wa.me/5585991447566?text=Ol%C3%A1!%20Quero%20fazer%20um%20or%C3%A7amento%20de%20produtos%20Bomilak" target="_blank" class="btn btn-primary">
         💬 Fazer um orçamento
       </a>
@@ -1559,7 +1871,6 @@
 
     <div class="pillars-grid">
 
-      <!-- Pilar 1: Padrão -->
       <div class="pillar">
         <div class="pillar-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -1573,7 +1884,6 @@
         </div>
       </div>
 
-      <!-- Pilar 2: Destaque vermelho -->
       <div class="pillar featured">
         <div class="pillar-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -1587,7 +1897,6 @@
         </div>
       </div>
 
-      <!-- Pilar 3: Destaque amarelo -->
       <div class="pillar highlight">
         <div class="pillar-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -1600,7 +1909,6 @@
         </div>
       </div>
 
-      <!-- Pilar 4: Padrão -->
       <div class="pillar">
         <div class="pillar-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -1796,19 +2104,141 @@
 </a>
 
 <script>
-  // Scroll reveal
-  const observer = new IntersectionObserver((entries) => {
+  /* ============================================================
+     SCROLL REVEAL GENÉRICO (outras seções da página)
+     ============================================================ */
+  const genericObserver = new IntersectionObserver((entries) => {
     entries.forEach(e => {
-      if (e.isIntersecting) e.target.classList.add('visible');
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        genericObserver.unobserve(e.target);
+      }
     });
   }, { threshold: 0.1 });
 
-  document.querySelectorAll('section > .container > *').forEach(el => {
-    el.classList.add('reveal');
-    observer.observe(el);
+  // Aplica reveal apenas em seções que NÃO sejam freezer e produtos
+  // (essas têm sistema próprio de animação)
+  document.querySelectorAll('section').forEach(section => {
+    if (section.classList.contains('freezer') || section.classList.contains('produtos')) return;
+    section.querySelectorAll('.container > *').forEach(el => {
+      el.classList.add('reveal');
+      genericObserver.observe(el);
+    });
   });
 
-  // Mobile menu (simple toggle)
+  /* ============================================================
+     ANIMAÇÕES DA SEÇÃO FREEZER
+     - Fotos entram em cascata com escala/rotação
+     - Texto aparece em cascata (h2 → p → chega → pains → cta)
+     ============================================================ */
+  const freezerObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in-view');
+        // Não desobservamos imediatamente para permitir reanimação caso o user faça scroll-up rápido
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+
+  // Observa cada foto individualmente (entrada em cascata)
+  document.querySelectorAll('.freezer-photo').forEach(photo => {
+    freezerObserver.observe(photo);
+  });
+  // Observa o bloco de texto inteiro (anima conteúdos internos via .in-view no pai)
+  document.querySelectorAll('.freezer-content').forEach(content => {
+    freezerObserver.observe(content);
+  });
+
+  /* ============================================================
+     ANIMAÇÕES DA SEÇÃO PRODUTOS (NOSSA LINHA)
+     - Header aparece primeiro
+     - Cards entram em cascata por linha
+     - CTA final aparece por último
+     ============================================================ */
+  const produtosObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in-view');
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.produtos-header').forEach(el => produtosObserver.observe(el));
+  document.querySelectorAll('.produto-card').forEach(card => produtosObserver.observe(card));
+  document.querySelectorAll('.produtos-cta-wrap').forEach(el => produtosObserver.observe(el));
+
+  /* ============================================================
+     PARALAXE SUTIL DURANTE O SCROLL
+     - Fotos do freezer e cards de produtos ganham movimento extra
+       enquanto o usuário rola a página
+     - Usa requestAnimationFrame pra performance
+     ============================================================ */
+  const parallaxItems = document.querySelectorAll('[data-parallax-speed]');
+  let ticking = false;
+  let lastScrollY = window.scrollY;
+
+  function updateParallax() {
+    const viewportH = window.innerHeight;
+    parallaxItems.forEach(item => {
+      const rect = item.getBoundingClientRect();
+      // Só anima quando o item está visível (otimização)
+      if (rect.bottom < -100 || rect.top > viewportH + 100) return;
+
+      const speed = parseFloat(item.dataset.parallaxSpeed) || 0;
+      // Distância do centro do item até o centro da viewport
+      const itemCenter = rect.top + rect.height / 2;
+      const viewportCenter = viewportH / 2;
+      const distance = itemCenter - viewportCenter;
+      // Translade Y proporcional à distância (efeito paralaxe)
+      const translateY = distance * speed * -1;
+
+      // Aplica via custom property pra não conflitar com hover/transforms
+      item.style.setProperty('--parallax-y', `${translateY}px`);
+
+      // Aplica o transform composto somente se o item já tiver entrado
+      if (item.classList.contains('in-view')) {
+        // Para freezer-photos, mantém a animação flutuante via CSS
+        // e o paralaxe é aplicado em conjunto via translate3d
+        if (item.classList.contains('freezer-photo')) {
+          item.style.transform = `translateY(${translateY}px)`;
+        } else if (item.classList.contains('produto-card')) {
+          // Pra cards, faz um movimento bem sutil que não conflita com hover
+          if (!item.matches(':hover')) {
+            item.style.transform = `translateY(${translateY}px)`;
+          }
+        }
+      }
+    });
+    ticking = false;
+  }
+
+  function onScroll() {
+    lastScrollY = window.scrollY;
+    if (!ticking) {
+      window.requestAnimationFrame(updateParallax);
+      ticking = true;
+    }
+  }
+
+  // Só ativa paralaxe em telas maiores e se o usuário não preferir menos animações
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const isWideScreen = window.innerWidth > 768;
+
+  if (!prefersReducedMotion && isWideScreen) {
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', () => {
+      // Limpa transforms ao redimensionar pra mobile
+      if (window.innerWidth <= 768) {
+        parallaxItems.forEach(item => { item.style.transform = ''; });
+      }
+    });
+    // Roda uma vez no carregamento
+    updateParallax();
+  }
+
+  /* ============================================================
+     MENU MOBILE (mantém o comportamento original)
+     ============================================================ */
   const burger = document.querySelector('.burger');
   const links = document.querySelector('.nav-links');
   burger?.addEventListener('click', () => {
@@ -1827,7 +2257,9 @@
     }
   });
 
-  // Close FAQ items when another opens (accordion behavior)
+  /* ============================================================
+     ACORDEÃO FAQ (mantém o comportamento original)
+     ============================================================ */
   document.querySelectorAll('.faq-item').forEach(item => {
     item.addEventListener('toggle', () => {
       if (item.open) {
